@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Signup from './Components/signup';
+import Signin from './Components/signin';
+import ForgotPassword from './Components/forgotPassword'
+
 
 class App extends Component {
   render() {
@@ -10,9 +14,13 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+
+        //Inital components below for testing purposes; To be deleted
+
+        <Signup />
+        <Signin />
+        <ForgotPassword />
       </div>
     );
   }

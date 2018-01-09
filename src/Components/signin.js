@@ -19,11 +19,9 @@ export default class Signin extends Component {
                 password: this.state.password
             })
         })
-        .then(console.log(`${this.state.userName}`))
         .then((res) => {
             return res.json();
         })
-        .then(console.log(`Success!`))
     }
 
     render() {

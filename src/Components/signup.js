@@ -18,17 +18,15 @@ export default class Signup extends Component {
     componentDidMount() {
         fetch(`localhost:${port}/createUser`, {
             method: 'post',
-            body: JSON.stringify({
+            body: {
                 username: this.state.userName,
                 password: this.state.password,
                 email: this.state.email
-            })
+            }
         })
-        .then(console.log(5))
         .then((res) => {
             return res.json();
         })
-        .then(console.log(`Success`))
     }
 
     render() {
