@@ -27,14 +27,11 @@ export default class Signin extends Component {
     render() {
         return (
             <div>
-            <h2>Sign In:</h2>
+            <h2><i>Sign In:</i></h2>
                 <form>
-                    <label style={{marginRight: 25}}>Username:</label>
-                    <input onChange={(e) => this.setState({userName: e.target.value})} value={this.state.userName} type="text" name="username" /><br/>
-                    <label style={{marginRight: 25}}>Password:</label>
-                    <input onChange={(e) => this.setState({password: e.target.value})} value={this.state.password} type="text" name="password" /><br/>
-
-                    <input type='submit' value="Sign In" />
+                    <input style={{color: 'dodgerBlue'}} placeholder="Username" onChange={(e) => this.setState({userName: e.target.value})} value={this.state.userName} type="text" name="username" /><br/>
+                    <input style={{color: 'dodgerBlue'}} placeholder="Password" onChange={(e) => this.setState({password: e.target.value})} value={this.state.password} type="password" name="password" /><br/>
+                    <input style={{color: 'red'}} type='submit' value="Sign In" />
                 
                 </form>
             </div>

@@ -31,14 +31,11 @@ export default class ForgotPassword extends Component {
         return (
             <div>
                 <form>
-                    <h2>Forgot Password:</h2><br/>
-                    <label style={{marginRight: 25}}>Username:</label>
-                    <input onChange={(e) => this.setState({username: e.target.value})} value={this.state.userName} type="text" name="username" /><br/>
-                    <label style={{marginRight: 25}}>New Password:</label>
-                    <input onChange={(e) => this.setState({password: e.target.value})} value={this.state.password} type="text" name="password" /><br/>
-                    <label style={{marginRight: 25}}>Question:</label>
-                    <input type="text" onChange={(e) => this.setState({question: e.target.value})} /><br/>
-                    <input type='submit' value="Change Password" />
+                    <h2><i>Forgot Password:</i></h2><br/>
+                    <input style={{color: 'dodgerBlue'}} placeholder='Username' onChange={(e) => this.setState({username: e.target.value})} value={this.state.userName} type="text" name="username" /><br/>
+                    <input style={{color: 'dodgerBlue'}} placeholder='New Password' onChange={(e) => this.setState({password: e.target.value})} value={this.state.password} type="password" name="password" /><br/>
+                    <input style={{color: 'dodgerBlue'}} placeholder='Question' type="text" onChange={(e) => this.setState({question: e.target.value})} /><br/>
+                    <input style={{color: 'red'}} type='submit' value="Change Password" />
                 
                 </form>
 
