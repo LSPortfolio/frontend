@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { FormControl, FormGroup } from 'react-bootstrap';
+import { createStore } from 'redux';
+import axios from 'axios';
+import {unregister} from '../registerServiceWorker'
 
 const port = process.env.PORT || 5280;
 
@@ -11,20 +15,44 @@ export default class ForgotPassword extends Component {
             username: '',
             password: ''
         };
+        this.handleChangeUsername = this.handleChangeUsername.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleChangeQuestion = this.handleChangeQuestion.bind(this);
+        this.handleChangeAnswer = this.handleChangeAnswer.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
     }
 
-    componentDidMount() {
-        fetch(`localhost:${port}/userLogin`, {
-            method: 'put',
-            body: {
-                question: this.state.question,
-                username: this.state.username,
-                password: this.state.password
-            }
-        })
+    handleChangeUsername(e) {
+        this.setState({ userName: e.target.value });
+    }
+
+    handleChangePassword(e) {
+        this.setState({ password: e.target.value });
+    }
+
+    handleChangeQuestion(e) {
+        this.setState({ question: e.event.target });
+    }
+
+    handleChangeAnswer(e) {
+        this.setState({ answer: e.event.target });
+    }
+
+    resetPassword(event) {
+        event.preventDefault();
+        const data = {
+            username: this.state.userName,
+            password: this.state.password,
+            question: this.state.question,
+            answer: this.state.answer
+        };
+        axios.post(`http://localhost:{port}/resetPassword`, data)
         .then((res) => {
-            return res.json();
-        });
+            alert('Your password has been reset!');
+        })
+        .catch((err) => {
+            alert('Password reset unsuccessful!');
+        })
     }
 
     render() {
@@ -32,13 +60,45 @@ export default class ForgotPassword extends Component {
             <div>
                 <form>
                     <h2><i>Forgot Password:</i></h2><br/>
-                    <input style={{color: 'dodgerBlue'}} placeholder='Username' onChange={(e) => this.setState({username: e.target.value})} value={this.state.userName} type="text" name="username" /><br/>
-                    <input style={{color: 'dodgerBlue'}} placeholder='New Password' onChange={(e) => this.setState({password: e.target.value})} value={this.state.password} type="password" name="password" /><br/>
-                    <input style={{color: 'dodgerBlue'}} placeholder='Question' type="text" onChange={(e) => this.setState({question: e.target.value})} /><br/>
-                    <input style={{color: 'red'}} type='submit' value="Change Password" />
+                    <FormGroup>
+                        <FormControl
+                            style={{color: 'dodgerBlue'}}
+                            placeholder='Username'
+                            onChange={ this.handleChangeUsername }
+                            value={ this.state.userName }
+                            type = 'text'
+                        />                    
+                    </FormGroup>
+                    <FormGroup>
+                        <FormControl
+                            style={{color: 'dodgerBlue'}}
+                            placeholder='New Password'
+                            onChange={ this.handleChangePassword }
+                            value={ this.state.password }
+                            type = 'text'
+                        />                    
+                    </FormGroup>
+                    <FormGroup>
+                        <FormControl
+                            style={{color: 'dodgerBlue'}}
+                            placeholder='Question'
+                            onChange={ this.handleChangeQuestion }
+                            value={ this.state.question }
+                            type = 'text'
+                        />                    
+                    </FormGroup>
+                    <FormGroup>
+                        <FormControl
+                            style={{color: 'dodgerBlue'}}
+                            placeholder='Answer'
+                            onChange={ this.handleChangeAnswer }
+                            value={ this.state.answer }
+                            type = 'text'
+                        />                    
+                    </FormGroup>
+                    <button style={{color: 'red'}} onClick={ this.resetPassword } >Reset Password</button>
                 
                 </form>
-
             </div>
         );
     }
