@@ -31,11 +31,11 @@ export default class ForgotPassword extends Component {
     }
 
     handleChangeQuestion(e) {
-        this.setState({ question: e.event.target });
+        this.setState({ question: e.target.value });
     }
 
     handleChangeAnswer(e) {
-        this.setState({ answer: e.event.target });
+        this.setState({ answer: e.target.value });
     }
 
     resetPassword(event) {
