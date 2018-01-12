@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { FormControl, FormGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const port = process.env.PORT || 5280;
 
@@ -14,6 +15,7 @@ export default class Signup extends Component {
             password: '',
             email: '',
             question: '',
+            accountType: ''
         }
 
         this.handleFirstName = this.handleFirstName.bind(this);
@@ -23,6 +25,7 @@ export default class Signup extends Component {
         this.handleEmail = this.handleEmail.bind(this);
         this.handleQuestion = this.handleQuestion.bind(this);
         this.signup = this.signup.bind(this);
+        this.handleChangeAccount = this.handleChangeAccount.bind(this);
     }
 
 
@@ -50,6 +53,10 @@ export default class Signup extends Component {
         this.setState({ question: event.target.value });
     }
 
+    handleChangeAccount(event) {
+        this.setState({ accountType: event.target.value });
+    }
+
     signup(event) {
         event.preventDefault();
         const data = {
@@ -72,68 +79,83 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div>
-            <h2><i>Sign Up:</i></h2>
-                <form>
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handleFirstName }
-                            placeholder="First Name"
-                            type='text'
-                            value={ this.state.firstname }
-                        />
-                    </FormGroup>
-
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}style={{color: 'dodgerBlue'}}
-                            onChange={ this.handleLastName }
-                            placeholder="Last Name"
-                            type='text'
-                            value={ this.state.lastname }
-                        />
-                    </FormGroup>
-                    
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handleEmail }
-                            placeholder='Email'
-                            type='text'
-                            value={ this.state.email }
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handleUserName }
-                            placeholder="Username"
-                            type= 'text'
-                            value={this.state.username}
-                        />
-                    </FormGroup>                    
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handlePassword }
-                            placeholder='Password'
-                            type='password'
-                            value={ this.state.password }
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <label style={{marginRight: 10, color: 'darkBlue'}}>Security Question:</label>
-                        <select style={{color:'dodgerBlue', paddingRight: 23}} onChange={ this.handleQuestion }>
-                            <option value='dog' style={{color: 'red'}}>What is your dog's name?</option>
-                            <option value='color' style={{color: 'red'}}>What is your favorite color?</option>
-                            <option value='schoolyear' style={{color: 'red'}}>What year did you graduate from high school?</option>
-                            <option value='maidenname' style={{color: 'red'}}>What is your mother's maiden name?</option>
-                            <option value='firstcar' style={{color: 'red'}}>What was the model of your first car?</option>                    
-                        </select>
-                    </FormGroup>
-                    <button style={{color: 'red'}} onClick={ this.signup }>Sign Up</button>
-                </form>
+            
+            <div style={{backgroundColor: 'dodgerBlue', color: 'white', display: 'flex', justifyContent: 'center'}}>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <header>
+                        <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
+                            <Link style={{color: 'white'}} to='/'>Home</Link>
+                            <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
+                            <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
+                        </div>
+                    </header>
+                    <h2><i>Sign Up:</i></h2>
+                    <select onChange={ this.handleChangeAccount }>
+                        <option disabled='true' placeholder='default'>Account Type</option>
+                        <option placeholder='student'>Student</option>
+                        <option placeholder='instructor'>Instructor</option>
+                        <option placeholder='recruiter'>Recruiter</option>
+                        <option placeholder='general'>General</option>
+                    </select>
+                    <form>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handleFirstName }
+                                placeholder="First Name"
+                                type='text'
+                                value={ this.state.firstname }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}style={{color: 'dodgerBlue'}}
+                                onChange={ this.handleLastName }
+                                placeholder="Last Name"
+                                type='text'
+                                value={ this.state.lastname }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handleEmail }
+                                placeholder='Email'
+                                type='text'
+                                value={ this.state.email }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handleUserName }
+                                placeholder="Username"
+                                type= 'text'
+                                value={this.state.username}
+                            />
+                        </FormGroup>                    
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handlePassword }
+                                placeholder='Password'
+                                type='password'
+                                value={ this.state.password }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <label style={{marginRight: 10, color: 'darkBlue'}}>Security Question:</label>
+                            <select style={{color:'dodgerBlue'}} onChange={ this.handleQuestion }>
+                                <option value='dog' style={{color: 'red'}}>What is your dog's name?</option>
+                                <option value='color' style={{color: 'red'}}>What is your favorite color?</option>
+                                <option value='schoolyear' style={{color: 'red'}}>What year did you graduate from high school?</option>
+                                <option value='maidenname' style={{color: 'red'}}>What is your mother's maiden name?</option>
+                                <option value='firstcar' style={{color: 'red'}}>What was the model of your first car?</option>                    
+                            </select>
+                        </FormGroup>
+                        <button style={{color: 'darkBlue'}} onClick={ this.signup }>Sign Up</button>
+                    </form>
+                </div>
             </div>
         );
     }

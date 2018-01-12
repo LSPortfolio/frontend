@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { FormControl, FormGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const port = process.env.PORT || 5280;
 
@@ -41,29 +42,38 @@ export default class Signin extends Component {
 
     render() {
         return(
-            <div>
-            <h2><i>Sign In:</i></h2>
-                <form>
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handleUsername }
-                            placeholder='Username'
-                            type='text'
-                            value={ this.state.username }
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <FormControl
-                            style={{color: 'dodgerBlue'}}
-                            onChange={ this.handlePassword }
-                            placeholder='Password'
-                            type='password'
-                            value={ this.state.password }
-                        />
-                    </FormGroup>
-                    <button style={{color: 'red'}} onClick={ this.login }>Sign In</button>
-                </form>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+                <header>
+                    <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
+                        <Link style={{color: 'white'}} to='/'>Home</Link>
+                        <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
+                        <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
+                    </div>
+                </header>
+                <div style={{backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'center'}}>
+                    <h2 style={{color: 'white', paddingRight: 20}}><i>Sign In:</i></h2>
+                    <form>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handleUsername }
+                                placeholder='Username'
+                                type='text'
+                                value={ this.state.username }
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <FormControl
+                                style={{color: 'dodgerBlue'}}
+                                onChange={ this.handlePassword }
+                                placeholder='Password'
+                                type='password'
+                                value={ this.state.password }
+                            />
+                        </FormGroup>
+                        <button style={{color: 'darkBlue'}} onClick={ this.login }>Sign In</button>
+                    </form>
+                </div>
             </div>
         )
     }

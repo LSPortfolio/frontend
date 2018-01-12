@@ -10,6 +10,8 @@ import ReduxPromise from 'redux-promise';
 import {BrowserRouter, Route} from 'react-router-dom';
 import reducer from './Reducers';
 import registerServiceWorker from './registerServiceWorker';
+import ForgotPassword from './Components/forgotPassword';
+import PasswordToken from './Components/passwordToken';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -20,6 +22,8 @@ ReactDOM.render(
                 <Route exact path='/' component={App} />
                 <Route path='/signup' component={Signup} />
                 <Route path='/signin' component={Signin} />
+                <Route path='/passwordReset' component={ForgotPassword} />
+                <Route path='/passwordToken' component={PasswordToken} />
             </div>
         </BrowserRouter>
     </Provider>,
