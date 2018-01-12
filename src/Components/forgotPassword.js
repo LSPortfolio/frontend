@@ -47,7 +47,7 @@ export default class ForgotPassword extends Component {
             question: this.state.question,
             answer: this.state.answer
         };
-        axios.post(`http://localhost:{port}/resetPassword`, data)
+        axios.post(`http://localhost:{port}/user/forgotPassword`, data)
         .then((res) => {
             alert('Your password has been reset!');
         })

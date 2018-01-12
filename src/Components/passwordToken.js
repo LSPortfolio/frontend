@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FormControl, FormGroup } from 'react-bootstrap';
+const port = process.env.PORT || 5280;
 
 export default class PasswordToken extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            token: ''
         };
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.submitEmail = this.submitEmail.bind(this);
@@ -18,6 +20,17 @@ export default class PasswordToken extends Component {
 
     submitEmail(e) {
         e.preventDefault();
+        const data = {
+            answer: this.state.answer,
+            password: password
+        };
+        axios.post(`localhost://${port}/user/resetPassword`)
+        .then((res) => {
+            alert('Check your email for a link to reset your password!');
+        })
+        .catch((err) => {
+            alert('Password reset unsuccessful!');
+        })
     }
 
     render() {

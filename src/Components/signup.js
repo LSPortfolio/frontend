@@ -60,6 +60,7 @@ export default class Signup extends Component {
     signup(event) {
         event.preventDefault();
         const data = {
+            role: this.state.accountType,
             email: this.state.email,
             username: this.state.username,
             password: this.state.password,
@@ -67,7 +68,7 @@ export default class Signup extends Component {
             firstname: this.state.firstname,
             lastname: this.state.lastname
         };
-        axios.post(`http://localhost/${port}/createUser`, data)
+        axios.post(`http://localhost/user/${port}/createUser`, data)
             .then(res => {
                 alert('New User Successful!');
             })

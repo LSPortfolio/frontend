@@ -11,6 +11,7 @@ export default class Signin extends Component {
         this.state = {
             username: '',
             password: '',
+            token: '',
         }
         this.handleUsername = this.handleUsername.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
@@ -28,9 +29,9 @@ export default class Signin extends Component {
     login(event) {
         event.preventDefault();
         const data = { username: this.state.username, password: this.state.password };
-        axios.post(`http://localhost:${port}/userLogin`, data)
+        axios.post(`http://localhost:${port}/user/userLogin`, data)
             .then(response => {
-                alert('You are logged in!');
+                alert('You are logged in');
             })
             .catch(err => {
                 if (err) {
