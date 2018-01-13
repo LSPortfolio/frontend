@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FormControl, FormGroup } from 'react-bootstrap';
+import axios from 'axios';
+
 const port = process.env.PORT || 5280;
 
 export default class PasswordToken extends Component {
@@ -22,7 +24,7 @@ export default class PasswordToken extends Component {
         e.preventDefault();
         const data = {
             answer: this.state.answer,
-            password: password
+            password: this.state.password
         };
         axios.post(`localhost://${port}/user/resetPassword`)
         .then((res) => {

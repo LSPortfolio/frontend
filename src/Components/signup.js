@@ -15,6 +15,7 @@ export default class Signup extends Component {
             password: '',
             email: '',
             question: '',
+            answer: '',
             accountType: ''
         }
 
@@ -60,19 +61,20 @@ export default class Signup extends Component {
     signup(event) {
         event.preventDefault();
         const data = {
-            role: this.state.accountType,
-            email: this.state.email,
-            username: this.state.username,
-            password: this.state.password,
-            question: this.state.question,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname
+            "username": "roland",
+            "password": "password",
+            "answer": "nothing",
+            "email": "rolandc5@hotmail.com",
+            "firstname": "roland",
+            "lastname": "canuto",
+            "role": "student"
         };
-        axios.post(`http://localhost/user/${port}/createUser`, data)
+        axios.post(`http://localhost:${port}/user/createUser`, data)
             .then(res => {
                 alert('New User Successful!');
             })
             .catch(err => {
+                console.log(err);
                 alert('Signup Unsuccessful!');
             }
         )
@@ -80,7 +82,6 @@ export default class Signup extends Component {
 
     render() {
         return (
-            
             <div style={{backgroundColor: 'dodgerBlue', color: 'white', display: 'flex', justifyContent: 'center'}}>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <header>
@@ -93,10 +94,10 @@ export default class Signup extends Component {
                     <h2><i>Sign Up:</i></h2>
                     <select onChange={ this.handleChangeAccount }>
                         <option disabled='true' placeholder='default'>Account Type</option>
-                        <option placeholder='student'>Student</option>
-                        <option placeholder='instructor'>Instructor</option>
-                        <option placeholder='recruiter'>Recruiter</option>
-                        <option placeholder='general'>General</option>
+                        <option value='student'>Student</option>
+                        <option value='instructor'>Instructor</option>
+                        <option value='recruiter'>Recruiter</option>
+                        <option value='general'>General</option>
                     </select>
                     <form>
                         <FormGroup>
