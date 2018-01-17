@@ -4,6 +4,7 @@ import './App.css';
 import Signup from './Components/signup';
 import Signin from './Components/signin';
 import ForgotPassword from './Components/forgotPassword'
+import { FormControl, FormGroup } from 'react-bootstrap';
 
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
             <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
             <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
+            <Link style={{color: 'white'}} to='/submit'>Submit</Link>
           </div>
           <div>
             <h1 style={{paddingTop: 30}}><i>Lambda Showcase</i></h1>

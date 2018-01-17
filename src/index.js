@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import Signin from './Components/signin';
 import Signup from './Components/signup';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
-import {BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import reducer from './Reducers';
 import registerServiceWorker from './registerServiceWorker';
 import ForgotPassword from './Components/forgotPassword';
 import PasswordToken from './Components/passwordToken';
+import SubmitProject from './Components/projectSubmit';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -24,6 +25,7 @@ ReactDOM.render(
                 <Route path='/signin' component={Signin} />
                 <Route path='/passwordReset' component={ForgotPassword} />
                 <Route path='/passwordToken' component={PasswordToken} />
+                <Route path='/submit' component={SubmitProject} />
             </div>
         </BrowserRouter>
     </Provider>,

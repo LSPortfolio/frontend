@@ -6,8 +6,8 @@ import axios from 'axios';
 const port = process.env.PORT || 5280;
 
 export default class PasswordToken extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             email: '',
             token: ''
