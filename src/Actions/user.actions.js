@@ -15,9 +15,14 @@ export const register = user => {
         dispatch(alertActions.success('Registration successful'))
       },
       error => {
-        console.log(error.response.data)
-        dispatch(failure(error.response.data))
-        dispatch(alertActions.error(error.response.data))
+        const { response, message } = error
+        if (!response) {
+          dispatch(failure(message))
+          dispatch(alertActions.error(message))
+        } else if (response.hasOwnProperty('data')) {
+          dispatch(failure(response.data))
+          dispatch(alertActions.error(response.data))
+        }
       }
     )
   }
@@ -36,9 +41,14 @@ export const login = (username, password) => {
         history.push('/')
       },
       error => {
-        console.log(error.response.data)
-        dispatch(failure(error.response.data))
-        dispatch(alertActions.error(error.response.data))
+        const { response, message } = error
+        if (!response) {
+          dispatch(failure(message))
+          dispatch(alertActions.error(message))
+        } else if (response.hasOwnProperty('data')) {
+          dispatch(failure(response.data))
+          dispatch(alertActions.error(response.data))
+        }
       }
     )
   }
