@@ -4,20 +4,17 @@ import { Link } from 'react-router-dom';
 export class NavBar extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-          <div style={{display: 'flex', justifyContent: 'space-around'}}>
-            <Link style={{color: 'white'}} to='/'>Home</Link>
-            <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-            <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-            <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
-            <Link style={{color: 'white'}} to='/submit'>Submit</Link>
-          </div>
-          <div>
-            <h1 style={{paddingTop: 30}}><i>Lambda Showcase</i></h1>
-            <img style={{width: 60, height: 60, backgroundColor: 'dodgerBlue', marginTop: -15}} src={ require('../LambdaLogo.jpg') } />
+      <div className="container row" id="header">
+        <header className="col-md-8">
+          <div className="navigation">
+            <div><img alt="logo" src={ require('../LambdaLogo.png') } /></div>
+            <div className="hidden-sm-down"><h1>Lambda Showcase</h1></div>
+            <Link to='/signin'>Sign In</Link>
+            <Link to='/signup'>Sign Up</Link>
+            <Link to='/submit'>Submit</Link>
           </div>
         </header>
+        
       </div>
     );
   }

@@ -1,57 +1,51 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import axios from 'axios';
-import NavbarLambda from './navbarLambda'
+import React, { Component } from 'react'
+import { FormControl, FormGroup } from 'react-bootstrap'
+import axios from 'axios'
 
-const port = process.env.PORT || 5280;
+const port = process.env.PORT || 5280
 
 export class PasswordToken extends Component {
-    constructor() {
-        super();
-        this.state = {
-            email: '',
-            token: ''
-        };
-        this.handleEmailChange = this.handleEmailChange.bind(this);
-        this.submitEmail = this.submitEmail.bind(this);
+  constructor() {
+    super()
+    this.state = {
+      email: '',
+      token: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-    handleEmailChange(e) {
-        this.setState({ email: e.target.value });
-    }
+  handleChange(e) {
+    this.setState({ email: e.target.value })
+  }
 
-    submitEmail(e) {
-        e.preventDefault();
-        const data = {
-            answer: this.state.answer,
-            password: this.state.password
-        };
-        axios.post(`localhost://${port}/user/resetPassword`)
-        .then((res) => {
-            alert('Check your email for a link to reset your password!');
-        })
-        .catch((err) => {
-            alert('Password reset unsuccessful!');
-        })
+  handleSubmit(e) {
+    e.preventDefault()
+    const data = {
+      answer: this.state.answer,
+      password: this.state.password
     }
+    axios
+      .post(`http://localhost://${port}/user/resetPassword`, data)
+      .then(res => {
+        alert('Check your email for a link to reset your password!')
+      })
+      .catch(err => {
+        alert('Password reset unsuccessful!')
+      })
+  }
 
-    render() {
-        return (
-            <div style={{justifyContent: 'center', color: 'dodgerBlue', backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
-                <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
-                    <Link style={{color: 'white'}} to='/'>Home</Link>
-                    <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-                    <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-                </div>
-                <p style={{display: 'flex', justifyContent: 'center'}}>Please provide your email:</p>
-                <form style={{display: 'flex', justifyContent: 'center'}}>
-                    <FormGroup>
-                        <FormControl onChange={this.handleEmailChange}></FormControl>
-                    </FormGroup>
-                <button onClick={this.submitEmail}>Submit</button>
-                </form>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <form>
+          <label>Please provide your email:</label>
+          <FormGroup>
+            <FormControl onChange={this.handleChange} />
+          </FormGroup>
+          <button onClick={this.handleSubmit}>Submit</button>
+        </form>
+      </div>
+    )
+  }
 }

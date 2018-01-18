@@ -15,9 +15,9 @@ export const register = user => {
         dispatch(alertActions.success('Registration successful'))
       },
       error => {
-        console.log(error)
-        dispatch(failure(error))
-        dispatch(alertActions.error(error))
+        console.log(error.response.data)
+        dispatch(failure(error.response.data))
+        dispatch(alertActions.error(error.response.data))
       }
     )
   }
