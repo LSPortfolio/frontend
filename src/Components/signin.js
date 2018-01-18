@@ -48,6 +48,7 @@ export default class Signin extends Component {
                 <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
                     <NavbarLambda />
                 </header>
+                <p>HEY</p>
                 <div style={{backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'center'}}>
                     <h2 style={{color: 'white', paddingRight: 20}}><i>Sign In:</i></h2>
                     <form>
