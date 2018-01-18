@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { FormControl, FormGroup } from 'react-bootstrap';
+import NavbarLambda from './navbarLambda'
 
 const port = process.env.PORT || 5280;
 
@@ -41,7 +42,10 @@ export class SubmitProject extends Component {
 
     render() {
         return (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
+                <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
+                    <NavbarLambda />
+                </header>
                 <FormGroup
                     style={{width: 300, display: 'flex', flexDirection: 'column'}}
                 >

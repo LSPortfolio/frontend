@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import axios from 'axios';
+import NavbarLambda from './navbarLambda'
 
 const port = process.env.PORT || 5280;
 
