@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import NavbarLambda from './navbarLambda';
 
 const port = process.env.PORT || 5280;
 
@@ -85,11 +86,7 @@ export default class Signup extends Component {
             <div style={{backgroundColor: 'dodgerBlue', color: 'white', display: 'flex', justifyContent: 'center'}}>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <header>
-                        <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
-                            <Link style={{color: 'white'}} to='/'>Home</Link>
-                            <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-                            <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
-                        </div>
+                        <NavbarLambda />
                     </header>
                     <h2><i>Sign Up:</i></h2>
                     <select onChange={ this.handleChangeAccount }>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import NavbarLambda from './navbarLambda'
 
 const port = process.env.PORT || 5280;
 
@@ -45,11 +46,7 @@ export default class Signin extends Component {
         return(
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <header>
-                    <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
-                        <Link style={{color: 'white'}} to='/'>Home</Link>
-                        <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-                        <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
-                    </div>
+                    <NavbarLambda />
                 </header>
                 <div style={{backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'center'}}>
                     <h2 style={{color: 'white', paddingRight: 20}}><i>Sign In:</i></h2>
