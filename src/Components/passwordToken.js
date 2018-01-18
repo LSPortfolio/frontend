@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const port = process.env.PORT || 5280;
 
-export default class PasswordToken extends Component {
+export class PasswordToken extends Component {
     constructor() {
         super();
         this.state = {
@@ -37,7 +37,7 @@ export default class PasswordToken extends Component {
 
     render() {
         return (
-            <div style={{justifyContent: 'center', color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
+            <div style={{justifyContent: 'center', color: 'dodgerBlue', backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
                 <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
                     <Link style={{color: 'white'}} to='/'>Home</Link>
                     <Link style={{color: 'white'}} to='/signin'>Sign In</Link>

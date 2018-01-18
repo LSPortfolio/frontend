@@ -1,33 +1,55 @@
+// Packages
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './App.css';
-import Signup from './Components/signup';
-import Signin from './Components/signin';
-import ForgotPassword from './Components/forgotPassword'
-import { FormControl, FormGroup } from 'react-bootstrap';
+import { Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+// Components & CSS
+import { PrivateRoute } from './Components';
+import { HomePage } from './Components';
+import { NavBar } from './Components';
+import { ForgotPassword } from './Components';
+import { PasswordToken } from './Components';
+import { SubmitProject } from './Components';
+import { SignIn } from './Components';
+import { SignUp } from './Components';
+import { alertActions } from './Actions';
+import { history } from './Helpers/history';
+import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    const { dispatch } = this.props;
+    history.listen((location, action) => {
+        dispatch(alertActions.clear());
+    });
+  }
   render() {
+    const { alert } = this.props;
     return (
       <div className="App">
-        <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-          <div style={{display: 'flex', justifyContent: 'space-around'}}>
-            <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-            <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-            <Link style={{color: 'white'}} to='/passwordReset'>Forgot Password</Link>
-            <Link style={{color: 'white'}} to='/submit'>Submit</Link>
-          </div>
-          <div>
-            <h1 style={{paddingTop: 30}}><i>Lambda Showcase</i></h1>
-            <img style={{width: 60, height: 60, backgroundColor: 'dodgerBlue', marginTop: -15}} src={ require('./LambdaLogo.jpg') } />
-          </div>
-        </header>
-
-
+          <Router history={history}>
+            <div>
+                <NavBar />
+                <PrivateRoute exact path="/" component={HomePage} />
+                {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+                <Route path='/signup' component={SignUp} />
+                <Route path='/signin' component={SignIn} />
+                <Route path='/passwordReset' component={ForgotPassword} />
+                <Route path='/passwordToken' component={PasswordToken} />
+                <Route path='/submit' component={SubmitProject} />
+            </div>
+        </Router>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  const { alert } = state;
+  return { alert };
+}
+
+const connectedApp = connect(mapStateToProps)(App);
+export { connectedApp as App };

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { FormControl, FormGroup } from 'react-bootstrap';
-import { createStore } from 'redux';
 import axios from 'axios';
-import { unregister } from '../registerServiceWorker'
 import { Link } from 'react-router-dom';
 
 const port = process.env.PORT || 5280;
 
-export default class ForgotPassword extends Component {
+export class ForgotPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -58,12 +56,7 @@ export default class ForgotPassword extends Component {
 
     render() {
         return (
-            <div style={{justifyContent: 'center', color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
-                <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
-                    <Link style={{color: 'white'}} to='/'>Home</Link>
-                    <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-                    <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-                </div>
+            <div style={{justifyContent: 'center', color: 'dodgerBlue', backgroundColor: 'white', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
                 <div style={{display: 'flex', justifyContent: 'center'}}>
                     <form>
                         <h2><i>Forgot Password:</i></h2><br/>
@@ -74,7 +67,7 @@ export default class ForgotPassword extends Component {
                                 onChange={ this.handleChangeUsername }
                                 value={ this.state.userName }
                                 type = 'text'
-                            />                    
+                            />
                         </FormGroup>
                         <FormGroup>
                             <FormControl
@@ -83,7 +76,7 @@ export default class ForgotPassword extends Component {
                                 onChange={ this.handleChangePassword }
                                 value={ this.state.password }
                                 type = 'text'
-                            />                    
+                            />
                         </FormGroup>
                         <p>*Security Question*</p>
                         <FormGroup>
@@ -93,7 +86,7 @@ export default class ForgotPassword extends Component {
                                 onChange={ this.handleChangeAnswer }
                                 value={ this.state.answer }
                                 type = 'text'
-                            />                    
+                            />
                         </FormGroup>
                         <button style={{color: 'darkBlue'}} onClick={ this.resetPassword } >Reset Password</button>
                     </form>

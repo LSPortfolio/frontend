@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from 'react-bootstrap';
 
 const port = process.env.PORT || 5280;
 
-export default class SubmitProject extends Component {
+export class SubmitProject extends Component {
     constructor() {
         super();
         this.state = {
@@ -45,7 +45,7 @@ export default class SubmitProject extends Component {
                 <FormGroup
                     style={{width: 300, display: 'flex', flexDirection: 'column'}}
                 >
-                    <h1 style={{width: 1000, justifyContent: 'center'}}>Submit Your Personal Project</h1>
+                    <h1 style={{color: 'dodgerBlue', justifyContent: 'center'}}>Submit Your Personal Project</h1>
                     <FormControl
                         style={{color: 'dodgerBlue'}}
                         placeholder='Lambda Class'

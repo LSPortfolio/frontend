@@ -1,34 +1,22 @@
+// Packages
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import Signin from './Components/signin';
-import Signup from './Components/signup';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from 'redux-promise';
-import { BrowserRouter, Route } from 'react-router-dom';
-import reducer from './Reducers';
-import registerServiceWorker from './registerServiceWorker';
-import ForgotPassword from './Components/forgotPassword';
-import PasswordToken from './Components/passwordToken';
-import SubmitProject from './Components/projectSubmit';
+import thunk from 'redux-thunk';
 
-const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+// Components & CSS
+import { App } from './App';
+import reducer from './Reducers';
+import './index.css';
+
+const createStoreWithMiddleware = applyMiddleware(thunk, ReduxPromise)(createStore);
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducer)}>
-        <BrowserRouter>
-            <div>
-                <Route exact path='/' component={App} />
-                <Route path='/signup' component={Signup} />
-                <Route path='/signin' component={Signin} />
-                <Route path='/passwordReset' component={ForgotPassword} />
-                <Route path='/passwordToken' component={PasswordToken} />
-                <Route path='/submit' component={SubmitProject} />
-            </div>
-        </BrowserRouter>
+    <Provider store={createStoreWithMiddleware(reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
+        <App />
     </Provider>,
-    
-    document.getElementById('root'));
-registerServiceWorker();
+    document.getElementById('root')
+);

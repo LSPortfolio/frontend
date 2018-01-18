@@ -1,28 +1,15 @@
-import { GET_USERNAME, GET_PASSWORD} from '../Actions/index';
-import  {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
-
-const usersReducer = (users = [], action) => {
-    switch (action.type) {
-        case GET_USERNAME:
-            return action.payload.data;
-        default:
-            return users;
-    }
-}
-
-const passwordReducer = (password = [], action) => {
-    switch (action.type) {
-        case GET_PASSWORD: 
-            return action.payload.data;
-        default: 
-            return password;
-    }
-}
+import { authentication } from './authentication.reducer';
+import { registration } from './registration.reducer';
+// import { users } from './users.reducer';
+import { alert } from './alert.reducer';
 
 const rootReducer = combineReducers({
-    users: usersReducer,
-    password: passwordReducer
+    authentication,
+    registration,
+    // users,
+    alert
 });
 
 export default rootReducer;
