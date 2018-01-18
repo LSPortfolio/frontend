@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import axios from 'axios';
+import NavbarLambda from './navbarLambda'
 
 const port = process.env.PORT || 5280;
 
@@ -37,12 +38,10 @@ export default class PasswordToken extends Component {
 
     render() {
         return (
-            <div style={{justifyContent: 'center', color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column', alignContent: 'center'}}>
-                <div style={{paddingBottom: 10, color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'space-around'}}>
-                    <Link style={{color: 'white'}} to='/'>Home</Link>
-                    <Link style={{color: 'white'}} to='/signin'>Sign In</Link>
-                    <Link style={{color: 'white'}} to='/signup'>Sign Up</Link>
-                </div>
+            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
+                <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
+                    <NavbarLambda />
+                </header>
                 <p style={{display: 'flex', justifyContent: 'center'}}>Please provide your email:</p>
                 <form style={{display: 'flex', justifyContent: 'center'}}>
                     <FormGroup>

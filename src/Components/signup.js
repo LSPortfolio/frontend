@@ -83,9 +83,9 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div style={{backgroundColor: 'dodgerBlue', color: 'white', display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <header>
+                    <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
                         <NavbarLambda />
                     </header>
                     <h2><i>Sign Up:</i></h2>

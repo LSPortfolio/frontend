@@ -44,8 +44,8 @@ export default class Signin extends Component {
 
     render() {
         return(
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <header>
+            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
+                <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
                     <NavbarLambda />
                 </header>
                 <div style={{backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'center'}}>
