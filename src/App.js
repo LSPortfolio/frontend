@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // Components & CSS
 import { PrivateRoute } from './Components';
-import { HomePage } from './Components';
+import HomePage from './Components/homePage';
 import { NavBar } from './Components';
 import { ForgotPassword } from './Components';
 import { PasswordToken } from './Components';
@@ -40,6 +40,7 @@ class App extends Component {
                   <Route path='/passwordReset' component={ForgotPassword} />
                   <Route path='/passwordToken' component={PasswordToken} />
                   <Route path='/submit' component={SubmitProject} />
+                  <Route path='/test' component={HomePage}/>
                 </div>
             </div>
         </Router>

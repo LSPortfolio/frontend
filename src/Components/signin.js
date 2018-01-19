@@ -55,6 +55,7 @@ class SignIn extends Component {
               placeholder="Password"
               name="password"
               value={password}
+              type='password'
             />
             {submitted && !password && (<div className="help-block">Password is required</div>)}
           </FormGroup>
