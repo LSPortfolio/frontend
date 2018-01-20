@@ -31,6 +31,17 @@
   padding-top: 5px;
 }
 
+.navbuttons {
+  background-color: rgb(109,109,109);
+  border-radius: 10px;
+}
+
+.navbuttons :hover {
+  background-color: rgb(30,144,255);
+  color: black;
+  border-radius: 5px;
+}
+
 .navigation a {
   color: rgb(255,255,255);
   align-self: center;
@@ -89,3 +100,34 @@
   margin-top: 14px;
   margin-bottom: 14px;
 }
+
+.sidebar {
+  background-color: black;
+  color: white;
+  border-color: rgb(109,109,109);
+}
+
+.sidebar :hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.graduatesidebar {
+  background-color: dodgerblue;
+  color: white;
+  border-color: rgb(109,109,109);
+}
+
+.graduatesidebar:hover {
+  background-color: #ff711e;
+  color: white;
+  border-color: black;
+}
+
+.sidebarcontainer {
+  float: right;
+}
+
+
+/* Official Lambda Color: rgb(66, 143, 187); */

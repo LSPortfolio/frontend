@@ -117,15 +117,11 @@ class SignUp extends Component {
               <select name="question" onChange={this.handleChange}>
                 <option value="dog">What is your dog's name?</option>
                 <option value="color">What is your favorite color?</option>
-                <option value="schoolyear">
-                  What year did you graduate from high school?
-                </option>
-                <option value="maidenname">
-                  What is your mother's maiden name?
-                </option>
-                <option value="firstcar">
-                  What was the model of your first car?
-                </option>
+                <option value="schoolyear">What year did you graduate from high school?</option>
+                <option value="maidenname">What is your mother's maiden name?</option>
+                <option value="firstcar">What was the model of your first car?</option>
+                <option value="firstgrade">What was your first grade teacher's last name?</option>
+                <option value="city">In which city were you born?</option>
               </select>
             </div>
             <FormControl

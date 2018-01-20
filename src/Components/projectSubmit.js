@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FormControl, FormGroup } from 'react-bootstrap'
+import ClassNavBar from './classNavBar'
 // import axios from 'axios';
 
 // const port = process.env.PORT || 5280;
@@ -10,11 +11,13 @@ export class SubmitProject extends Component {
     this.state = {
       studentName: '',
       lambdaClass: '',
-      projectName: ''
+      projectName: '',
+      githubUrl: ''
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleClassChange = this.handleClassChange.bind(this)
     this.handleProjectChange = this.handleProjectChange.bind(this)
+    this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
   handleClassChange(e) {
@@ -35,7 +38,17 @@ export class SubmitProject extends Component {
     this.setState({ projectName: e.target.value })
   }
 
-  personalProjectSubmit() {}
+  handleClassChange(e) {
+    this.setState({ lambdaClass: e.target.value });
+  }
+
+  handleUrlChange(e) {
+    this.setState({ githubUrl: e.target.value });
+  }
+
+  personalProjectSubmit() {
+    console.log('Submitted!');
+  }
 
   render() {
     return (
@@ -57,7 +70,12 @@ export class SubmitProject extends Component {
             placeholder="Project Name"
             onChange={this.handleProjectChange}
           />
-          <button>Submit</button>
+          <FormControl
+            className="input_form"
+            placeholder="GitHub URL"
+            onChange={this.handleUrlChange}
+          />
+          <button onClick={this.personalProjectSubmit}>Submit</button>
         </FormGroup>
       </div>
     )
