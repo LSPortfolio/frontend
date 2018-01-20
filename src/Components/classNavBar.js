@@ -7,8 +7,8 @@ export default class ClassNavBar extends Component {
     render() {
         return (
             <div>
-                <ButtonGroup vertical className='sidebarcontainer sidebar' class="btn-group" role="group">
-                    <Button className='btn-danger'>CS1</Button>
+                <ButtonGroup vertical style={{borderRadius: 100}} className='sidebarcontainer sidebar' role="group">
+                    <Button className='graduatesidebar'>CS1</Button>
                     <Button className='sidebar'>CS2</Button>
                     <Button className='sidebar'>CS3</Button>
                     <Button className='sidebar'>CS4</Button>
