@@ -1,28 +1,60 @@
+// Packages
 import React, { Component } from 'react';
+import { Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// Components & CSS
+import { PrivateRoute } from './Components/privateRoute';
+import HomePage from './Components/homePage';
+import { NavBar } from './Components';
+import { ForgotPassword } from './Components';
+import { PasswordToken } from './Components';
+import { SubmitProject } from './Components';
+import { SignIn } from './Components/signIn';
+import { SignUp } from './Components/signUp';
+import { alertActions } from './Actions';
+import { history } from './Helpers/history';
+import Test from './Components/test';
 import './App.css';
-import Signup from './Components/signup';
-import Signin from './Components/signin';
-import ForgotPassword from './Components/forgotPassword'
-import { FormControl, FormGroup } from 'react-bootstrap';
-import NavbarLambda from './Components/navbarLambda'
-import { Link } from 'react-router-dom';
-
-
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    const { dispatch } = this.props;
+    history.listen((location, action) => {
+        dispatch(alertActions.clear());
+    });
+  }
   render() {
+    const { alert } = this.props;
     return (
       <div className="App">
-        <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-          <div>
-            <NavbarLambda />
-            <h1 style={{paddingTop: 0}}><i>Lambda Showcase</i></h1>
-            <img style={{width: 60, height: 60, backgroundColor: 'dodgerBlue'}} src={ require('./LambdaLogo.jpg') } />
-          </div>
-        </header>
+          <Router history={ history }>
+            <div>
+                <NavBar />
+                <PrivateRoute exact path="/" component={ HomePage } />
+                {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+                <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
+                  <Route path='/signup' component={ SignUp } />
+                  <Route path='/signin' component={ SignIn } />
+                  <Route path='/passwordReset' component={ ForgotPassword } />
+                  <Route path='/passwordToken' component={ PasswordToken } />
+                  <Route path='/submit' component={ SubmitProject } />
+                  <Route path='/test' component={ Test } />
+                  <Route path='/homePage' component={ HomePage } />
+                </div>
+            </div>
+        </Router>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  const { alert } = state;
+  return { alert };
+}
+
+const connectedApp = connect(mapStateToProps)(App);
+export { connectedApp as App };

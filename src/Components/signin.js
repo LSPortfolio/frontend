@@ -1,79 +1,87 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import NavbarLambda from './navbarLambda'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { FormControl, FormGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-const port = process.env.PORT || 5280;
+import { login } from '../Actions'
 
-export default class Signin extends Component {
-    constructor() {
-        super();
-        this.state = {
-            username: '',
-            password: '',
-            token: '',
-        }
-        this.handleUsername = this.handleUsername.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-        this.login = this.login.bind(this);
-    };
+class SignIn extends Component {
+  constructor(props) {
+    super(props)
 
-    handleUsername(event) {
-        this.setState({ username: event.target.value });
+    this.state = {
+      username: '',
+      password: '',
+      submitted: false,
+      token: ''
     }
 
-    handlePassword(event) {
-        this.setState({ password: event.target.value });
-    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-    login(event) {
-        event.preventDefault();
-        const data = { username: this.state.username, password: this.state.password };
-        axios.post(`http://localhost:${port}/user/userLogin`, data)
-            .then(response => {
-                alert('You are logged in');
-            })
-            .catch(err => {
-                if (err) {
-                    alert('Invalid Credentials!');
-                }
-            }
-        ); 
-    }
+  handleChange(e) {
+    const { name, value } = e.target
+    this.setState({ [name]: value })
+  }
 
-    render() {
-        return(
-            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-                <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-                    <NavbarLambda />
-                </header>
-                <div style={{backgroundColor: 'dodgerBlue', display: 'flex', justifyContent: 'center'}}>
-                    <h2 style={{color: 'white', paddingRight: 20}}><i>Sign In:</i></h2>
-                    <form>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handleUsername }
-                                placeholder='Username'
-                                type='text'
-                                value={ this.state.username }
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handlePassword }
-                                placeholder='Password'
-                                type='password'
-                                value={ this.state.password }
-                            />
-                        </FormGroup>
-                        <button style={{color: 'darkBlue'}} onClick={ this.login }>Sign In</button>
-                    </form>
-                </div>
-            </div>
-        )
-    }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState({ submitted: true })
+    const { username, password } = this.state
+    const { dispatch } = this.props
+    if (username && password) dispatch(login(username, password))
+  }
+
+  render() {
+    const { loggingIn } = this.props
+    const { username, password, submitted } = this.state
+    return (
+      <div className="container" id="signin_container">
+        <h2>Sign In</h2>
+        <form>
+          <FormGroup>
+            <FormControl
+              className={'form-group' + (submitted && !username ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Username"
+              name="username"
+              value={username}
+            />
+            {submitted && !username && (<div className="help-block">Username is required</div>)}
+            <FormControl
+              className={'form-group' + (submitted && !password ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Password"
+              name="password"
+              value={password}
+              type='password'
+            />
+            {submitted && !password && (<div className="help-block">Password is required</div>)}
+          </FormGroup>
+          <div className="buttons_layout">
+            <button onClick={this.handleSubmit}>Sign In</button>
+            <Link to="/passwordReset">Forgot Password</Link>
+          </div>
+          {loggingIn && (
+            <img
+              alt="loading"
+              id="loading"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          )}
+        </form>
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = state => {
+  const { loggingIn } = state.authentication
+  return {
+    loggingIn
+  }
+}
+
+const connectedSignIn = connect(mapStateToProps)(SignIn)
+export { connectedSignIn as SignIn }

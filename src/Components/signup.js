@@ -1,162 +1,158 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import NavbarLambda from './navbarLambda';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { FormControl, FormGroup } from 'react-bootstrap'
 
-const port = process.env.PORT || 5280;
+import { register } from '../Actions'
 
-export default class Signup extends Component {
-    constructor() {
-        super();
-        this.state = {
-            firstname: '',
-            lastname: '',
-            username: '',
-            password: '',
-            email: '',
-            question: '',
-            answer: '',
-            accountType: ''
-        }
-
-        this.handleFirstName = this.handleFirstName.bind(this);
-        this.handleLastName = this.handleLastName.bind(this);
-        this.handleUserName = this.handleUserName.bind(this);
-        this.handlePassword = this.handlePassword.bind(this);
-        this.handleEmail = this.handleEmail.bind(this);
-        this.handleQuestion = this.handleQuestion.bind(this);
-        this.signup = this.signup.bind(this);
-        this.handleChangeAccount = this.handleChangeAccount.bind(this);
+class SignUp extends Component {
+  constructor() {
+    super()
+    this.state = {
+      user: {
+        firstname: '',
+        lastname: '',
+        username: '',
+        password: '',
+        email: '',
+        question: 'dog',
+        answer: '',
+        role: 'student'
+      },
+      submitted: false
     }
 
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-    handleFirstName(event) {
-        this.setState({ firstname: event.target.value });
-    }
+  handleChange(e) {
+    const { name, value } = e.target
+    const { user } = this.state
+    this.setState({
+      user: {
+          ...user,
+          [name]: value
+      }
+    })
+  }
 
-    handleLastName(event) {
-        this.setState({ lastname: event.target.value });
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState({ submitted: true })
+    const { user } = this.state
+    const { dispatch } = this.props
+    if (user.firstname && user.lastname && user.username && user.password) {
+      dispatch(register(user))
     }
+  }
 
-    handleUserName(event) {
-        this.setState({ username: event.target.value });
-    }
+  render() {
+    const { registering } = this.props;
+    const { user, submitted } = this.state;
 
-    handlePassword(event) {
-        this.setState({ password: event.target.value });
-    }
-    
-    handleEmail(event) {
-        this.setState({ email: event.target.value });
-    }
-
-    handleQuestion(event) {
-        this.setState({ question: event.target.value });
-    }
-
-    handleChangeAccount(event) {
-        this.setState({ accountType: event.target.value });
-    }
-
-    signup(event) {
-        event.preventDefault();
-        const data = {
-            "username": "roland",
-            "password": "password",
-            "answer": "nothing",
-            "email": "rolandc5@hotmail.com",
-            "firstname": "roland",
-            "lastname": "canuto",
-            "role": "student"
-        };
-        axios.post(`http://localhost:${port}/user/createUser`, data)
-            .then(res => {
-                alert('New User Successful!');
-            })
-            .catch(err => {
-                console.log(err);
-                alert('Signup Unsuccessful!');
-            }
-        )
-    }
-
-    render() {
-        return (
-            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-                        <NavbarLambda />
-                    </header>
-                    <h2><i>Sign Up:</i></h2>
-                    <select onChange={ this.handleChangeAccount }>
-                        <option disabled='true' placeholder='default'>Account Type</option>
-                        <option value='student'>Student</option>
-                        <option value='instructor'>Instructor</option>
-                        <option value='recruiter'>Recruiter</option>
-                        <option value='general'>General</option>
-                    </select>
-                    <form>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handleFirstName }
-                                placeholder="First Name"
-                                type='text'
-                                value={ this.state.firstname }
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}style={{color: 'dodgerBlue'}}
-                                onChange={ this.handleLastName }
-                                placeholder="Last Name"
-                                type='text'
-                                value={ this.state.lastname }
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handleEmail }
-                                placeholder='Email'
-                                type='text'
-                                value={ this.state.email }
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handleUserName }
-                                placeholder="Username"
-                                type= 'text'
-                                value={this.state.username}
-                            />
-                        </FormGroup>                    
-                        <FormGroup>
-                            <FormControl
-                                style={{color: 'dodgerBlue'}}
-                                onChange={ this.handlePassword }
-                                placeholder='Password'
-                                type='password'
-                                value={ this.state.password }
-                            />
-                        </FormGroup>
-                        <FormGroup>
-                            <label style={{marginRight: 10, color: 'darkBlue'}}>Security Question:</label>
-                            <select style={{color:'dodgerBlue'}} onChange={ this.handleQuestion }>
-                                <option value='dog' style={{color: 'red'}}>What is your dog's name?</option>
-                                <option value='color' style={{color: 'red'}}>What is your favorite color?</option>
-                                <option value='schoolyear' style={{color: 'red'}}>What year did you graduate from high school?</option>
-                                <option value='maidenname' style={{color: 'red'}}>What is your mother's maiden name?</option>
-                                <option value='firstcar' style={{color: 'red'}}>What was the model of your first car?</option>                    
-                            </select>
-                        </FormGroup>
-                        <button style={{color: 'darkBlue'}} onClick={ this.signup }>Sign Up</button>
-                    </form>
-                </div>
+    return (
+      <div className="container">
+        <h2>Sign Up</h2>
+        <form>
+          <FormGroup>
+            <FormControl
+              className={'form-group' + (submitted && !user.firstname ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="First Name"
+              type="text"
+              name="firstname"
+              value={this.state.firstname}
+            />
+            {submitted && !user.firstname && <div className="help-block">First Name is required</div>}
+            <FormControl
+              className={'form-group' + (submitted && !user.lastname ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Last Name"
+              type="text"
+              name="lastname"
+              value={this.state.lastname}
+            />
+            {submitted && !user.lastname && <div className="help-block">Last Name is required</div>}
+            <FormControl
+              className={'form-group' + (submitted && !user.email ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Email"
+              type="text"
+              name="email"
+              value={this.state.email}
+            />
+            {submitted && !user.email && <div className="help-block">Email is required</div>}
+            <FormControl
+              className={'form-group' + (submitted && !user.username ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Username"
+              type="text"
+              name="username"
+              value={this.state.username}
+            />
+            {submitted && !user.username && <div className="help-block">Username is required</div>}
+            <FormControl
+              className={'form-group' + (submitted && !user.password ? ' has-error' : '')}
+              onChange={this.handleChange}
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+            />
+            {submitted && !user.password && <div className="help-block">Password is required</div>}
+            <div className="buttons_layout" id="signup_btns">
+              <label>Account Type:</label>
+              <select name="role" onChange={this.handleChange}>
+                <option disabled="true" placeholder="default">
+                  Account Type
+                </option>
+                <option value="student">Student</option>
+                <option value="instructor">Instructor</option>
+                <option value="recruiter">Recruiter</option>
+                <option value="general">General</option>
+              </select>
             </div>
-        );
-    }
+            <div className="buttons_layout" id="signup_btns">
+              <label>Security Question:</label>
+              <select name="question" onChange={this.handleChange}>
+                <option value="dog">What is your dog's name?</option>
+                <option value="color">What is your favorite color?</option>
+                <option value="schoolyear">What year did you graduate from high school?</option>
+                <option value="maidenname">What is your mother's maiden name?</option>
+                <option value="firstcar">What was the model of your first car?</option>
+                <option value="firstgrade">What was your first grade teacher's last name?</option>
+                <option value="city">In which city were you born?</option>
+              </select>
+            </div>
+            <FormControl
+              name="answer"
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.answer}
+            />
+          </FormGroup>
+          <button onClick={this.handleSubmit}>
+            Sign Up
+          </button>
+          {registering && (
+            <img
+              alt="loading"
+              id="loading"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          )}
+        </form>
+      </div>
+    )
+  }
 }
 
+function mapStateToProps(state) {
+  const { registering } = state.registration
+  return {
+    registering
+  }
+}
+
+const connectedRegisterPage = connect(mapStateToProps)(SignUp)
+export { connectedRegisterPage as SignUp }

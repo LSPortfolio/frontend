@@ -1,73 +1,83 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { FormControl, FormGroup } from 'react-bootstrap';
-import NavbarLambda from './navbarLambda'
+import React, { Component } from 'react'
+import { FormControl, FormGroup } from 'react-bootstrap'
+import ClassNavBar from './classNavBar'
+// import axios from 'axios';
 
-const port = process.env.PORT || 5280;
+// const port = process.env.PORT || 5280;
 
-export default class SubmitProject extends Component {
-    constructor() {
-        super();
-        this.state = {
-            studentName: '',
-            lambdaClass: '',
-            projectName: '',
-        };
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleClassChange = this.handleClassChange.bind(this);
-        this.handleProjectChange = this.handleProjectChange.bind(this);
+export class SubmitProject extends Component {
+  constructor() {
+    super()
+    this.state = {
+      studentName: '',
+      lambdaClass: '',
+      projectName: '',
+      githubUrl: ''
     }
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleClassChange = this.handleClassChange.bind(this)
+    this.handleProjectChange = this.handleProjectChange.bind(this)
+    this.handleUrlChange = this.handleUrlChange.bind(this);
+  }
 
-    handleClassChange(e) {
-        let tempClass = e.target.value;
-        tempClass = tempClass.split('');
-        for (let i = 0; i < tempClass.length; i++) {
-            tempClass[i] = tempClass[i].toUpperCase();
-        }
-        tempClass = tempClass.join('');
-        this.setState({ lambdaClass: tempClass });
+  handleClassChange(e) {
+    let tempClass = e.target.value
+    tempClass = tempClass.split('')
+    for (let i = 0; i < tempClass.length; i++) {
+      tempClass[i] = tempClass[i].toUpperCase()
     }
+    tempClass = tempClass.join('')
+    this.setState({ lambdaClass: tempClass })
+  }
 
-    handleNameChange(e) {
-        this.setState({ studentName: e.target.value });
-    }
+  handleNameChange(e) {
+    this.setState({ studentName: e.target.value })
+  }
 
-    handleProjectChange(e) {
-        this.setState({ projectName: e.target.value });
-    }
+  handleProjectChange(e) {
+    this.setState({ projectName: e.target.value })
+  }
 
-    personalProjectSubmit() {
-        
-    }
+  handleClassChange(e) {
+    this.setState({ lambdaClass: e.target.value });
+  }
 
-    render() {
-        return (
-            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-                <header className="App-header" style={{color: 'white', backgroundColor: 'dodgerBlue', display: 'flex', flexDirection: 'column'}}>
-                    <NavbarLambda />
-                </header>
-                <FormGroup
-                    style={{width: 300, display: 'flex', flexDirection: 'column'}}
-                >
-                    <h1 style={{width: 1000, justifyContent: 'center'}}>Submit Your Personal Project</h1>
-                    <FormControl
-                        style={{color: 'dodgerBlue'}}
-                        placeholder='Lambda Class'
-                        onChange={ this.handleClassChange }
-                    />
-                    <FormControl
-                        style={{color: 'dodgerBlue'}}
-                        placeholder='Name'
-                        onChange={ this.handleNameChange }
-                    />
-                    <FormControl
-                        style={{color: 'dodgerBlue'}}
-                        placeholder='Project Name'
-                        onChange={ this.handleProjectChange }
-                    />
-                    <button style={{color: 'dodgerBlue'}}>Submit</button>
-                </FormGroup>
-            </div>
-        );
-    }
+  handleUrlChange(e) {
+    this.setState({ githubUrl: e.target.value });
+  }
+
+  personalProjectSubmit() {
+    console.log('Submitted!');
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <FormGroup>
+          <h1>Submit Your Personal Project</h1>
+          <FormControl
+            className="input_form"
+            placeholder="Lambda Class"
+            onChange={this.handleClassChange}
+          />
+          <FormControl
+            className="input_form"
+            placeholder="Name"
+            onChange={this.handleNameChange}
+          />
+          <FormControl
+            className="input_form"
+            placeholder="Project Name"
+            onChange={this.handleProjectChange}
+          />
+          <FormControl
+            className="input_form"
+            placeholder="GitHub URL"
+            onChange={this.handleUrlChange}
+          />
+          <button onClick={this.personalProjectSubmit}>Submit</button>
+        </FormGroup>
+      </div>
+    )
+  }
 }

@@ -1,18 +1,133 @@
+/* Global / App */
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #222;
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* NavBar Components */
+#header {
   height: 150px;
-  padding: 20px;
+  color: rgb(30,144,255);
+  background-color: rgb(40,40,40);
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.navigation {
+  background-color: rgb(66, 143, 187);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.navbuttons {
+  background-color: rgb(109,109,109);
+  border-radius: 10px;
+}
+
+.navbuttons :hover {
+  background-color: rgb(30,144,255);
+  color: black;
+  border-radius: 5px;
+}
+
+.navigation a {
+  color: rgb(255,255,255);
+  align-self: center;
+}
+
+.navigation img {
+  width: 30px;
+  height: 30px;
+  margin-top: 4px;
+  align-self: center;
+}
+
+.navigation h1 {
+  color: rgb(255,255,255);
+  align-self: center;
+  font-size: 2em;
+  margin: 0px;
+  margin-top: 4px;
+  margin-right: 20px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 401px) and (max-width: 1024px) {
+  .hidden-sm-down { display: none; }
+}
+
+/* SignIn Components */
+#signin_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons_layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#loading {
+  padding-left: 20px;
+}
+
+/* SignUp Components */
+#signup_btns {
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+#signup_btns select {
+  width: 200px;
+}
+
+/* Submit Project Components */
+.input_form {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.sidebar {
+  background-color: black;
   color: white;
+  border-color: rgb(109,109,109);
 }
 
-.App-title {
-  font-size: 1.5em;
+.sidebar :hover {
+  background-color: white;
+  color: black;
+  border-color: black;
 }
 
-.App-intro {
-  font-size: large;
+.graduatesidebar {
+  background-color: dodgerblue;
+  color: white;
+  border-color: rgb(109,109,109);
 }
+
+.graduatesidebar:hover {
+  background-color: #ff711e;
+  color: white;
+  border-color: black;
+}
+
+.sidebarcontainer {
+  float: right;
+}
+
+
+/* Official Lambda Color: rgb(66, 143, 187); */
