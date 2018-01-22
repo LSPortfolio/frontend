@@ -12,6 +12,7 @@ import { PasswordToken } from './Components';
 import { SubmitProject } from './Components';
 import { SignIn } from './Components/signIn';
 import { SignUp } from './Components/signUp';
+import  Projects  from './Components/Projects';
 import { alertActions } from './Actions';
 import { history } from './Helpers/history';
 import Test from './Components/test';
@@ -43,6 +44,7 @@ class App extends Component {
                   <Route path='/submit' component={ SubmitProject } />
                   <Route path='/test' component={ Test } />
                   <Route path='/homePage' component={ HomePage } />
+                  <Route path='/Projects' component={Projects} />
                 </div>
             </div>
         </Router>

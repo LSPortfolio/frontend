@@ -10,6 +10,24 @@
   padding: 0;
 }
 
+.carousel-inner {
+  margin: auto;
+  text-align: center;
+  flex-direction: row;
+}
+.wheel {
+  position: absolute;
+  left: 80%;
+  top: 50%;
+  
+
+  transform: translate(-50%, -50%);
+  
+
+  width: 40%;
+  height: 50%;
+}
+
 /* NavBar Components */
 #header {
   height: 150px;

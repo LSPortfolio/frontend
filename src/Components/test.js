@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import ClassNavBar from './classNavBar';
-// import { DropdownButton, MenuItem } from 'react-bootstrap';
-import { Dropdown, Button } from 'bootstrap';
-import { DropdownButton } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import Carousel from 'nuka-carousel';
+import '../App.css';
+
+
+
 export default class Test extends Component {
     render () {
         return (
-            <div>
-                <ClassNavBar />
-                <div class="btn-group dropleft">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropleft
-                    </button>
-                    <div class="dropdown-menu">
-                        <Link to='/'>1</Link>
-                        <Link to='/'>2</Link>
-                        <Link to='/'>3</Link>
-                        <Link to='/'>4</Link>
-                        <Link to='/'>5</Link>
-                    </div>
-                </div>
-            </div>
+         <div className="wheel" style={{ width: 900}}>
+            <Carousel style={{height: 500, width:700, display: 'inline-block'}}>
+            <img src="https://lambdaschool.com/assets/img/istock1blue.jpg" style={{ width: 700, height: 500}}/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>
+            <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>
+          </Carousel>
+          </div>
         );
     }
 }
