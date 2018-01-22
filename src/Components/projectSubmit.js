@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FormControl, FormGroup } from 'react-bootstrap'
 import ClassNavBar from './classNavBar'
+import axios from 'axios'
 // import axios from 'axios';
 
 // const port = process.env.PORT || 5280;
@@ -12,12 +13,15 @@ export class SubmitProject extends Component {
       studentName: '',
       lambdaClass: '',
       projectName: '',
-      githubUrl: ''
+      githubUrl: '',
+      Description: '',
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleClassChange = this.handleClassChange.bind(this)
     this.handleProjectChange = this.handleProjectChange.bind(this)
     this.handleUrlChange = this.handleUrlChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleMediaChange = this.handleMediaChange.bind(this);
   }
 
   handleClassChange(e) {
@@ -34,6 +38,10 @@ export class SubmitProject extends Component {
     this.setState({ studentName: e.target.value })
   }
 
+  handleMediaChange(e) {
+    
+  }
+
   handleProjectChange(e) {
     this.setState({ projectName: e.target.value })
   }
@@ -44,6 +52,10 @@ export class SubmitProject extends Component {
 
   handleUrlChange(e) {
     this.setState({ githubUrl: e.target.value });
+  }
+
+  handleDescriptionChange(e) {
+    this.setState({ Description: e.target.value });
   }
 
   personalProjectSubmit() {
@@ -75,6 +87,11 @@ export class SubmitProject extends Component {
             placeholder="GitHub URL"
             onChange={this.handleUrlChange}
           />
+        <FormControl 
+          className="input_form"
+          placeholer="Description"
+          onChange={this.handleDescriptionChange}
+        />
           <button onClick={this.personalProjectSubmit}>Submit</button>
         </FormGroup>
       </div>
