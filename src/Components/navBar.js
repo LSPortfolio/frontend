@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, ButtonGroup } from 'react-bootstrap';
+import { Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 import '../App.css';
 
@@ -20,6 +20,16 @@ export class NavBar extends Component {
                   <Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>            
                   <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>
                   <Button className='navbuttons'><Link to='/submit'>Submit</Link></Button>
+                  <Button className='navbuttons'><Link to='/Projects'>Sudent Projects</Link></Button>
+                  <DropdownButton title="classes">
+                    <MenuItem>CS1</MenuItem>
+                    <MenuItem>CS2</MenuItem>
+                    <MenuItem>CS3</MenuItem>
+                   <MenuItem >CS4</MenuItem>
+                   <MenuItem>CS5</MenuItem>
+                   <MenuItem>CS6</MenuItem>
+                   <MenuItem>CS7</MenuItem>
+                </DropdownButton>
                 </div>
               </div>
             </header>
