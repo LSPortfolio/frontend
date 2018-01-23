@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import ClassNavBar from './classNavBar';
 import axios from 'axios';
 import { fork } from 'child_process';
 
+=======
+import React, { Component } from 'react'
+import { FormControl, FormGroup } from 'react-bootstrap'
+import ClassNavBar from './classNavBar'
+import axios from 'axios'
+>>>>>>> dc1b3a03d6199d88189d1b776b3ca8c680f37698
 // import axios from 'axios';
 
 // const port = process.env.PORT || 5280;
@@ -16,6 +23,7 @@ export class SubmitProject extends Component {
       lambdaClass: '',
       projectName: '',
       githubUrl: '',
+<<<<<<< HEAD
       uploadFile: '',
       contributors: [],
       likes: 0,
@@ -31,6 +39,16 @@ export class SubmitProject extends Component {
     this.handleUploadChange = this.handleUploadChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleContributorsChange = this.handleContributorsChange.bind(this);
+=======
+      Description: '',
+    }
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleClassChange = this.handleClassChange.bind(this)
+    this.handleProjectChange = this.handleProjectChange.bind(this)
+    this.handleUrlChange = this.handleUrlChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleMediaChange = this.handleMediaChange.bind(this);
+>>>>>>> dc1b3a03d6199d88189d1b776b3ca8c680f37698
   }
 
   handleClassChange(e) {
@@ -43,6 +61,10 @@ export class SubmitProject extends Component {
 
   handleNameChange(e) {
     this.setState({ studentName: e.target.value });
+  }
+
+  handleMediaChange(e) {
+    
   }
 
   handleProjectChange(e) {
@@ -132,6 +154,7 @@ export class SubmitProject extends Component {
             placeholder="GitHub URL"
             onChange={this.handleUrlChange}
           />
+<<<<<<< HEAD
           <FormControl
             className="input_form"
             placeholder="Contributors"
@@ -156,6 +179,14 @@ export class SubmitProject extends Component {
             style={{ marginBottom: 30 }}
           />
           <button onClick={ this.personalProjectSubmit }>Submit</button>
+=======
+        <FormControl 
+          className="input_form"
+          placeholer="Description"
+          onChange={this.handleDescriptionChange}
+        />
+          <button onClick={this.personalProjectSubmit}>Submit</button>
+>>>>>>> dc1b3a03d6199d88189d1b776b3ca8c680f37698
         </FormGroup>
       </div>
     )
