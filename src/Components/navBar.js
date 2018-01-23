@@ -20,15 +20,15 @@ export class NavBar extends Component {
                   <Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>            
                   <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>
                   <Button className='navbuttons'><Link to='/submit'>Submit</Link></Button>
-                  <Button className='navbuttons'><Link to='/Projects'>Sudent Projects</Link></Button>
-                  <DropdownButton title="classes">
-                    <MenuItem>CS1</MenuItem>
-                    <MenuItem>CS2</MenuItem>
-                    <MenuItem>CS3</MenuItem>
-                   <MenuItem >CS4</MenuItem>
-                   <MenuItem>CS5</MenuItem>
-                   <MenuItem>CS6</MenuItem>
-                   <MenuItem>CS7</MenuItem>
+                  <Button className='navbuttons'><Link to='/Projects'>Student Projects</Link></Button>
+                  <DropdownButton id='dropdown' title="classes">
+                    <MenuItem id='cs1'>CS1</MenuItem>
+                    <MenuItem id='cs2'>CS2</MenuItem>
+                    <MenuItem id='cs3'>CS3</MenuItem>
+                    <MenuItem id='cs4'>CS4</MenuItem>
+                    <MenuItem id='cs5'>CS5</MenuItem>
+                    <MenuItem id='cs6'>CS6</MenuItem>
+                    <MenuItem id='cs7'>CS7</MenuItem>
                 </DropdownButton>
                 </div>
               </div>
