@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { FormControl, FormGroup } from 'react-bootstrap'
 import ClassNavBar from './classNavBar'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 // import axios from 'axios';
 
@@ -38,9 +39,6 @@ export class SubmitProject extends Component {
     this.setState({ studentName: e.target.value })
   }
 
-  handleMediaChange(e) {
-    
-  }
 
   handleProjectChange(e) {
     this.setState({ projectName: e.target.value })
@@ -58,7 +56,7 @@ export class SubmitProject extends Component {
     this.setState({ Description: e.target.value });
   }
 
-  personalProjectSubmit() {
+  personalProjectSubmit(e) {
     console.log('Submitted!');
   }
 
@@ -92,7 +90,7 @@ export class SubmitProject extends Component {
           placeholer="Description"
           onChange={this.handleDescriptionChange}
         />
-          <button onClick={this.personalProjectSubmit}>Submit</button>
+          <button onClick={this.personalProjectSubmit}><Link to='/newProject'>Submit</Link></button>
         </FormGroup>
       </div>
     )

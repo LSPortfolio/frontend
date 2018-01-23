@@ -13,6 +13,7 @@ import { SubmitProject } from './Components';
 import { SignIn } from './Components/signIn';
 import { SignUp } from './Components/signUp';
 import  Projects  from './Components/Projects';
+import NewProject from './Components/newProject';
 import { alertActions } from './Actions';
 import { history } from './Helpers/history';
 import Test from './Components/test';
@@ -35,6 +36,7 @@ class App extends Component {
             <div>
                 <NavBar />
                 <PrivateRoute exact path="/" component={ HomePage } />
+                <PrivateRoute exact path="/newProject" component={ NewProject } />
                 {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
                 <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
                   <Route path='/signup' component={ SignUp } />
