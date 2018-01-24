@@ -147,5 +147,9 @@
   float: right;
 }
 
+.graduated {
+  background-color: dodgerblue;
+}
+
 
 /* Official Lambda Color: rgb(66, 143, 187); */
