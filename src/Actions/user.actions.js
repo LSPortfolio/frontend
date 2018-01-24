@@ -8,8 +8,6 @@ export const register = user => {
     dispatch(request(user))
     services.register(user).then(
       user => {
-        console.log('register dispatched')
-        console.log(user)
         dispatch(success(user))
         history.push('/')
         dispatch(alertActions.success('Registration successful'))
@@ -36,7 +34,6 @@ export const login = (username, password) => {
     dispatch(request({ username }))
     services.login(username, password).then(
       user => {
-        console.log('login successful')
         dispatch(success(user))
         history.push('/')
       },

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
 
 import '../App.css';
 
@@ -43,7 +43,20 @@ shuffleArray(cs1List);
 shuffleArray(cs2List);
 
 export class NavBar extends Component {
+  constructor() {
+    super()
+    this.navSwitcher = this.navSwitcher.bind(this)
+  }
+
+  navSwitcher(pathname) {
+    return pathname === '/signin' || pathname === 'signup'
+      ? [<Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>,
+        <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>]
+      : <Button className='navbuttons'><Link to='/signin'>Sign Out</Link></Button>
+  }
+
   render() {
+    const { pathname } = this.props.history.location;
     return (
       <div>
         <div>
@@ -55,8 +68,7 @@ export class NavBar extends Component {
                   <div className="hidden-sm-down"><h1>Lambda Showcase</h1></div>
                 </div>
                 <div style={{marginRight: 5}}>
-                  <Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>            
-                  <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>
+                  {this.navSwitcher(pathname)}
                   <Button className='navbuttons'><Link to='/submit'>Submit</Link></Button>
                   <Button className='navbuttons'><Link to='/Projects'>Student Projects</Link></Button>
                   <DropdownButton pullRight id='dropdown' title="Classes">

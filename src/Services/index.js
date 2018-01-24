@@ -1,9 +1,8 @@
-// import { authHeader } from '../Helpers'
 import axios from 'axios'
 
 export const services = {
   login,
-  // logout,
+  logout,
   register,
   // getAll,
   // getById,
@@ -12,11 +11,26 @@ export const services = {
 }
 
 function register(user) {
-  return axios.post('http://localhost:5280/user/create', user).then(handleResponse)
+  return axios.post('http://localhost:5280/user/create', user)
+    .then(handleResponse)
+    .then(saveToken);
 }
 
 function login(username, password) {
-  return axios.post('http://localhost:5280/user/login', ({ username, password })).then(handleResponse)
+  return axios.post('http://localhost:5280/user/login', ({ username, password }))
+    .then(handleResponse)
+    .then(saveToken);
+}
+
+function logout() {
+  localStorage.removeItem('user');
+}
+
+function saveToken(user) {
+  if (user && user.data.token) {
+    localStorage.setItem('user', JSON.stringify(user.data.token));
+  }
+  return user;
 }
 
 function handleResponse(response, err) {
