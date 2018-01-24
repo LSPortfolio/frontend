@@ -38,8 +38,8 @@ class App extends Component {
                 <PrivateRoute exact path="/" component={ HomePage } />
                 {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
                 <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
-                  <Route path='/signup' component={ SignUp } />
-                  <Route path='/signin' component={ SignIn } />
+                  <Route path='/signUp' component={ SignUp } />
+                  <Route path='/signIn' component={ SignIn } />
                   <Route path='/passwordReset' component={ ForgotPassword } />
                   <Route path='/passwordToken' component={ PasswordToken } />
                   <Route path='/submit' component={ SubmitProject } />

@@ -16,7 +16,8 @@ function register(user) {
 }
 
 function login(username, password) {
-  return axios.post('http://localhost:5280/user/login', ({ username, password })).then(handleResponse)
+  return axios.post('http://localhost:5280/user/login', ({ username, password }), 
+  localStorage.setItem('token', username.token)).then(handleResponse)
 }
 
 function handleResponse(response, err) {
