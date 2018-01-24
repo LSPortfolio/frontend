@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ClassNavBar from '../Components/classNavBar';
+// import ClassNavBar from '../Components/classNavBar';
 import Carousel from 'nuka-carousel';
 import '../App.css';
 

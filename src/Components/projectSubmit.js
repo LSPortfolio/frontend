@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FormControl, FormGroup } from 'react-bootstrap';
-import ClassNavBar from './classNavBar';
+// import ClassNavBar from './classNavBar';
 import axios from 'axios';
 
 // import axios from 'axios';
@@ -146,7 +146,7 @@ export class SubmitProject extends Component {
             onChange={ this.handleTagsChange }
           />
           <textarea
-            class="form-control"
+            className="form-control"
             placeholder="Description"
             onChange={this.handleDescriptionChange}
             rows='3'

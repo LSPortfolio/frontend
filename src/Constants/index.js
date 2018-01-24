@@ -9,6 +9,8 @@ export const constants = {
 
   LOGOUT: 'USERS_LOGOUT',
 
+  PROJECT_SUBMIT: 'PROJECT_SUBMITTED',
+
   // User administration constants
   // GETALL_REQUEST: 'USERS_GETALL_REQUEST',
   // GETALL_SUCCESS: 'USERS_GETALL_SUCCESS',
