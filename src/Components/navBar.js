@@ -4,7 +4,7 @@ import { Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 import '../App.css';
 
-const cs1List=[
+const cs1List = [
   'Jiovan Melendez',
   'Antonio Melendez',
   'Sarah Majors',
@@ -18,7 +18,7 @@ const cs1List=[
   'Jason Campbell',
   'Ely Alamillo',
   'Jake Cooley',
-  'Patrick Kennedy',
+  'Patrick Kennedy'
 ];
 
 const cs2List = [
@@ -30,6 +30,54 @@ const cs2List = [
   'Adam Lower',
   'Ryan Lowe',
   'Dylan Scheidt'
+];
+
+const cs3List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs4List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs5List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs6List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs7List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs8List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs9List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
+];
+
+const cs10List = [
+  'Person 1',
+  'Person 2',
+  'Person 3'
 ];
 
 const shuffleArray = (array) => {
@@ -55,37 +103,52 @@ export class NavBar extends Component {
                   <div className="hidden-sm-down"><h1>Lambda Showcase</h1></div>
                 </div>
                 <div style={{marginRight: 5}}>
-                  <Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>            
-                  <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>
-                  <Button className='navbuttons'><Link to='/submit'>Submit</Link></Button>
-                  <Button className='navbuttons'><Link to='/Projects'>Student Projects</Link></Button>
+                  <Button href='/signin' className='navbuttons'>Sign In</Button>            
+                  <Button href='/signup' className='navbuttons'>Sign Up</Button>
+                  <Button href='/submit' className='navbuttons'>Submit</Button>
+                  <Button href='/Projects' className='navbuttons'>Student Projects</Button>
                   <DropdownButton pullRight id='dropdown' title="Classes">
                     <DropdownButton pullRight className='graduated' title="CS1" id='cs1'>
                     <MenuItem><Link style={{ color: 'black' }} to='/cs1'>All CS1</Link></MenuItem>
                       {
-                        cs1List.map((each) => <MenuItem>{ each }</MenuItem>)
+                        cs1List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
                       }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS2" id='cs2'>
                     <MenuItem><Link style={{ color: 'black' }} to='/cs2'>All CS2</Link></MenuItem>
                       {
-                        cs2List.map((each) => <MenuItem>{ each }</MenuItem>)
+                        cs2List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
                       }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS3" id='cs3'>
                       <MenuItem><Link style={{ color: 'black' }} to='/cs3'>All CS3</Link></MenuItem>
+                      {
+                        cs3List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
+                      }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS4" id='cs4'>
                       <MenuItem><Link style={{ color: 'black' }} to='/cs4'>All CS4</Link></MenuItem>
+                      {
+                        cs4List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
+                      }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS5" id='cs5'>
                       <MenuItem><Link style={{ color: 'black' }} to='/cs5'>All CS5</Link></MenuItem>
+                      {
+                        cs5List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
+                      }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS6" id='cs6'>
                       <MenuItem><Link style={{ color: 'black' }} to='/cs6'>All CS6</Link></MenuItem>
+                      {
+                        cs6List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
+                      }
                     </DropdownButton>
                     <DropdownButton pullRight title="CS7" id='cs7'>
                       <MenuItem><Link style={{ color: 'black' }} to='/cs7'>All CS7</Link></MenuItem>
+                      {
+                        cs7List.map(each => <MenuItem href={'/' + each.split(' ').join('')} key={ each.split(' ').join('') } >{ each }</MenuItem>)
+                      }
                     </DropdownButton>
                 </DropdownButton>
                 </div>
