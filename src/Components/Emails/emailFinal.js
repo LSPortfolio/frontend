@@ -1,22 +1,22 @@
 module.exports = {
     welcome: {
         subject: 'Welcome to the showcase!',
-        html: 'content of the email goes here...'
+        html: `<html>Hello, welcome to the Lambda Showcase Portfolio. We would like to show off our exciting projects to display Lambda Students' creative minds. Recruiters are invited to email students to further discuss their projects and their future goals. We welcome you to our community, and if you have any additional questions, please <a href='https://lambdaschool.com/contact'>contact us</a>!</html>`
     },
     resetPassword: {
         subject: 'Change Password',
-        html: token => `<html href="https://lambdashowcase.com/user/changepw?token=${token}"> Click here to reset password! </html>`
+        html: token => `<html>Click <a href="https://lambdashowcase.com/user/changepw?token=${token}">here</a> to reset your password!</html>`
     },
     pwResetSuccess: {
-        subject: 'Your Password has Changed',
-        html: 'Body of the email goes in here.'
+        subject: 'Lambda Showcase Password Change',
+        html: `<html>Your password has been successfully changed!</html>`
     },
     makeLive: {
-        subject: 'Project now live',
-        html: 'Body of the email goes in here.'
+        subject: 'Project Now Live',
+        html: `<html>Congratulations, your project has gone live!</html>`
     },
     makeDraft: {
-        subject: 'Draft in progress',
+        subject: 'Draft in Progress',
         html: 'Progress and body of the email goes in here.'
     },
     notify_project_like: data => {
