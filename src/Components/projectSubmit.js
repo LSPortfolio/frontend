@@ -75,7 +75,7 @@ export class SubmitProject extends Component {
     fileToBeUploaded = e.target.files[0];
     let formData = new FormData();
     formData.append('file', fileToBeUploaded);
-    formData.append('upload_preset');
+    formData.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
   }}
 
   handleDescriptionChange(e) {
@@ -91,21 +91,21 @@ export class SubmitProject extends Component {
   }
 
   submit() {
-    // let file = this.state.uploadFile;
-    // let formData = new FormData();
-    // formData.append('file', file);
-    // formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    let file = this.state.uploadFile;
+    let formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
 
-    // axios({
-    //   url: CLOUDINARY_URL,
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   },
-    //   data: formData
-    // })
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err));
+    axios({
+      url: process.env.CLOUDINARY_URL,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: formData
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
 
     // try {  
     //   let data = fs.readFileSync('../norway-3840x2160-5k-4k-wallpaper-fjord-mountains-river-sky-5657', 'utf8');
@@ -114,12 +114,12 @@ export class SubmitProject extends Component {
     //     console.log('Error:', e.stack);
     // }
   
-    const STUPID = 'https://wallpapershome.com/images/wallpapers/norway-3840x2160-5k-4k-wallpaper-fjord-mountains-river-sky-5657.jpg';
+    // const STUPID = 'https://wallpapershome.com/images/wallpapers/norway-3840x2160-5k-4k-wallpaper-fjord-mountains-river-sky-5657.jpg';
 
-    cloudinary.uploader.upload(STUPID, (err, result) => {
-      console.log(err);
-      console.log(result);
-    });
+    // cloudinary.uploader.upload(STUPID, (err, result) => {
+    //   console.log(err);
+    //   console.log(result);
+    // });
 
     // let content;
     
@@ -130,11 +130,11 @@ export class SubmitProject extends Component {
     //   console.log(data);
     // });
 
-    const uploadWidget = () => {
-      cloudinary.openUploadWidget({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME, upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET, tags:[this.state.tags]}, function(error, result) {
-        console.log(result);
-      });
-    }
+    // const uploadWidget = () => {
+    //   cloudinary.openUploadWidget({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME, upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET, tags:[this.state.tags]}, function(error, result) {
+    //     console.log(result);
+    //   });
+    // }
 
   }
 
