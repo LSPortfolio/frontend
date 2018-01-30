@@ -98,16 +98,16 @@ export class NavBar extends Component {
 
   navSwitcher(pathname) {
     return pathname === '/signin' || pathname === 'signup'
-      ? [<Button className='navbuttons'><Link to='/signin'>Sign In</Link></Button>,
-        <Button className='navbuttons'><Link to='/signup'>Sign Up</Link></Button>]
-      : <Button className='navbuttons'><Link to='/signin'>Sign Out</Link></Button>
+      ? [<Button href='/SignIn' className='navbuttons'>Sign In</Button>,
+        <Button href='/SignUp' className='navbuttons'>Sign Up</Button>]
+      : <Button href='/SignOut' className='navbuttons'>Sign Out</Button>
   }
 
   render() {
     const { pathname } = this.props.history.location;
     return (
       <div>
-        <div>
+        <div>'/submit'
           <div style={{backgroundColor: 'dodgerBlue'}} className="container-row" id="header">
             <header style={{ width: "100%" }}>
               <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} className="navigation">
@@ -117,8 +117,8 @@ export class NavBar extends Component {
                 </div>
                 <div style={{marginRight: 5}}>
                   {this.navSwitcher(pathname)}
-                  <Button className='navbuttons'><Link to='/submit'>Submit</Link></Button>
-                  <Button className='navbuttons'><Link to='/Projects'>Student Projects</Link></Button>
+                  <Button href='/Submit' className='navbuttons'>Submit</Button>
+                  <Button href='/Projects' className='navbuttons'>Student Projects</Button>
                   <DropdownButton pullRight id='dropdown' title="Classes">
                     <DropdownButton pullRight className='graduated' title="CS1" id='cs1'>
                     <MenuItem><Link style={{ color: 'black' }} to='/cs1'>All CS1</Link></MenuItem>
