@@ -3,7 +3,6 @@ import { services } from '../Services/';
 import { alertActions } from './';
 import { history } from '../Helpers/history';
 
-
 export const newProject = project => {
     return dispatch => {
       dispatch(request(project))
