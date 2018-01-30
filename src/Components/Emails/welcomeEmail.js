@@ -1,1 +1,0 @@
-const x = `Hello, ${firstName}. Welcome to Lambda Showcase`;
