@@ -2,6 +2,7 @@ import { constants } from '../Constants';
 import { services } from '../Services/';
 import { alertActions } from './';
 import { history } from '../Helpers/history';
+import axios from axios;
 
 export const newProject = project => {
     return dispatch => {
@@ -27,5 +28,14 @@ export const newProject = project => {
     function request(project) { return { type: constants.REGISTER_REQUEST, project } }
     function success(project) { return { type: constants.REGISTER_SUCCESS, project } }
     function failure(error) { return { type: constants.REGISTER_FAILURE, error } }
+  }
+
+  export const getProjects = () => {
+    const promise = axios.get('http://localhost:5280/project/all')
+    return({
+      type: constants.GET_PROJECTS,
+      payload: promise
+    });
+
   }
 
