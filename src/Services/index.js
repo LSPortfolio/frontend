@@ -10,42 +10,42 @@ export const services = {
   // delete: _delete
 }
 
-const HOST_PROJECT = 'http://localhost:5280/createproject';
+// const HOST_PROJECT = 'http://localhost:5280/createproject';
 const NEW_USER_HOST = 'http://localhost:5280/user/create';
 const USER_LOGIN = 'http://localhost:5280/user/login';
 
 /* ——— Authentication ——— */
 function register(user) {
-  return axios.post( NEW_USER_HOST, user)
+  return axios.post(NEW_USER_HOST, user)
     .then(handleResponse)
     .then(saveToken);
 }
 
 function login(username, password) {
-  return axios.post( USER_LOGIN, ({ username, password }))
+  return axios.post(USER_LOGIN, ({ username, password }))
     .then(handleResponse)
     .then(saveToken);
 }
 
 function logout() {
-  localStorage.removeItem('user');
+  localStorage.removeItem('user')
 }
 
 /* ——— Project ——— */
-function createProject(project) {
-  return axios.post(HOST_PROJECT, project)
-    .then(handleResponse);
-}
+// function createProject(project) {
+//   return axios.post(HOST_PROJECT, project)
+//     .then(handleResponse);
+// }
 
-function addComment(contributer, comment) {
-  return axios.post('/createproject/${commentId}', ({ contributer, comment }))
-  .then(handleResponse);
-}
+// function addComment(contributer, comment) {
+//   return axios.post('/createproject/${commentId}', ({ contributer, comment }))
+//   .then(handleResponse);
+// }
 
-function deleteComment(contributer, comment) {
-  return axios.delete('/createproject/${commentId}', ({ contributer, comment }))
-  .then(handleResponse);
-}
+// function deleteComment(contributer, comment) {
+//   return axios.delete('/createproject/${commentId}', ({ contributer, comment }))
+//   .then(handleResponse);
+// }
 
 /* ——— Utilities ——— */
 function saveToken(user) {

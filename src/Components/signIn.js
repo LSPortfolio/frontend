@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 import { FormControl, FormGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-import { login, logout } from '../Actions'
+import { login } from '../Actions'
 
 class SignIn extends Component {
   constructor(props) {
     super(props)
-
-    this.props.dispatch(logout())
 
     this.state = {
       username: '',

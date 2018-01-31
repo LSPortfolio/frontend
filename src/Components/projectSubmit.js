@@ -50,7 +50,7 @@ export class SubmitProject extends Component {
   }
 
   submitFiles = () => {
-    const { files, fileUrls } = this.state
+    const { files } = this.state
     const urls = []
 
     const uploaded = files.map(file => {

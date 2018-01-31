@@ -10,33 +10,29 @@
   padding: 0;
 }
 
-.carousel-inner {
-  margin: auto;
-  text-align: center;
-  flex-direction: row;
-}
-.wheel {
-  position: absolute;
-  left: 80%;
-  top: 50%;
-  
-
-  transform: translate(-50%, -50%);
-  
-
-  width: 40%;
-  height: 50%;
-}
-
 /* NavBar Components */
 #header {
   height: 150px;
-  color: rgb(30,144,255);
-  background-color: rgb(40,40,40);
+  color: rgb(40,40,40);
+  background-color: rgb(30,144,255);
   display: flex;
   flex-direction: center;
   justify-content: center;
   align-content: center;
+}
+
+.header {
+  width: 100vw;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .navigation {
@@ -44,14 +40,20 @@
   height: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 5px;
   padding-top: 5px;
+}
+
+.btn_container {
+  padding-top: 2px;
+  padding-right: 5px;
 }
 
 .navbuttons {
   background-color: rgb(109,109,109);
   border-radius: 10px;
+  margin: 0 10px 0 0;
 }
 
 .navbuttons :hover {
@@ -79,6 +81,10 @@
   margin-top: 4px;
   margin-right: 20px;
   padding: 0px;
+}
+
+.class_links {
+  color: black;
 }
 
 @media screen and (min-width: 401px) and (max-width: 1024px) {
@@ -153,6 +159,5 @@
 .blacklinks {
   color: black;
 }
-
 
 /* Official Lambda Color: rgb(66, 143, 187); */
