@@ -1,20 +1,76 @@
 import React, { Component } from 'react';
-// import ClassNavBar from './classNavBar';
-import Carousel from 'nuka-carousel';
 import '../App.css';
-export default class Test extends Component {
-    render () {
+
+class ShowProjects extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pics: {
+                one: require('../Components/TestFiles/1.jpg')
+            },
+            names: {
+                one: 'John Doe',
+            },                
+            projects: {
+                one: 'Project 1',
+            },
+        };
+    }
+
+    render() {
         return (
-            <div className="wheel" style={{ width: 900}}>
-                <Carousel style={{height: 500, width:700, display: 'inline-block'}}>
-                    <img alt="" src="https://lambdaschool.com/assets/img/istock1blue.jpg" style={{ width: 700, height: 500}}/>
-                    <img alt="" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
-                    <img alt="" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
-                    <img alt="" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>
-                    <img alt="" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>
-                    <img alt="" src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>
-                </Carousel>
+            <div style={{display: 'flex', flexDirection: 'column',}}>
+                <h2 style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>{ this.state.projects.one }</h2>
+                <img className='testimage' src={this.state.pics.one} />
+                <h4 style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>{ this.state.names.one }</h4>
             </div>
+        );
+    }
+}
+
+export default class Test2 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pics: {
+                one: require('../Components/TestFiles/1.jpg')
+            },
+            names: {
+                one: 'John Doe',
+            },                
+            projects: {
+                one: 'Project 1',
+            }
+        };
+    }
+
+    render() {
+        return (
+            <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />
+                <ShowProjects />                
+            </div>
+
         );
     }
 }
