@@ -2,7 +2,7 @@ import { constants } from '../Constants';
 import { services } from '../Services/';
 import { alertActions } from './';
 import { history } from '../Helpers/history';
-import axios from axios;
+import axios from 'axios';
 
 export const newProject = project => {
     return dispatch => {
