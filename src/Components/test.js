@@ -1,6 +1,32 @@
 import React, { Component } from 'react';
 import '../App.css';
 
+class Mapper extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nums: [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            holder: [
+
+            ]
+        };
+    }
+    render() {
+        let nums = this.state.nums;
+        return (
+            <div>
+                { nums.map(x => <div>{x}</div>) }
+            </div>
+        );
+    }
+}
+
 class ShowProjects extends Component {
     constructor(props) {
         super(props);
@@ -50,9 +76,16 @@ export default class Test2 extends Component {
         };
     }
 
+    mapper() {
+        return (
+            <div>0123456789</div>
+        );
+    }
+
     render() {
         return (
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
+                <Mapper />
                 <ShowProjects name={this.state.names.one} project={this.state.projects.one} pic={this.state.pics.one} />
                 <ShowProjects name={this.state.names.two} project={this.state.projects.two} pic={this.state.pics.two} />
                 <ShowProjects name={this.state.names.three} project={this.state.projects.three} pic={this.state.pics.three} />
