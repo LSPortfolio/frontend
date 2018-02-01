@@ -4,3 +4,6 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+/* @media screen and (min-width: 401px) and (max-width: 1024px) {
+  .hidden-sm-down { display: none; }
+} */

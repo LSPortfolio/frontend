@@ -3445,6 +3445,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flexboxgrid2@^7.0.0-alpha7:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/flexboxgrid2/-/flexboxgrid2-7.1.0.tgz#7de7c9ef7112274e81ef8bf5bfb6170fbce404d9"
+  dependencies:
+    normalize.css "^7.0.0"
+
 flux-standard-action@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/flux-standard-action/-/flux-standard-action-0.6.1.tgz#6f34211b94834ea1c3cc30f4e7afad3d0fbf71a2"
@@ -5909,6 +5915,10 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+normalize.css@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
+
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -6969,6 +6979,13 @@ react-dom@^16.2.0:
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
+
+react-flexbox-grid@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-flexbox-grid/-/react-flexbox-grid-2.0.0.tgz#6ffbe30a28fc6113e147715a5adc1f6a6f472e54"
+  dependencies:
+    flexboxgrid2 "^7.0.0-alpha7"
+    prop-types "^15.5.8"
 
 react-overlays@^0.8.0:
   version "0.8.3"

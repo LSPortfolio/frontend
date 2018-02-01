@@ -107,7 +107,7 @@ export class NavBar extends Component {
     const { pathname } = this.props.history.location;
     return (
       <div>
-        <div>'/submit'
+        <div>
           <div style={{backgroundColor: 'dodgerBlue'}} className="container-row" id="header">
             <header style={{ width: "100%" }}>
               <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} className="navigation">

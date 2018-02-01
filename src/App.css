@@ -64,6 +64,10 @@
   padding: 0px;
 }
 
+.col-xs-6 {
+  flex-basis: 50%;
+}
+
 @media screen and (min-width: 401px) and (max-width: 1024px) {
   .hidden-sm-down { display: none; }
 }
@@ -138,8 +142,8 @@
 }
 
 .testimage {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 
