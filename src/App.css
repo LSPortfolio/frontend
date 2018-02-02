@@ -13,8 +13,8 @@
 /* NavBar Components */
 #header {
   height: 150px;
-  color: rgb(40,40,40);
-  background-color: rgb(30,144,255);
+  color: rgb(30,144,255);
+  background-color: rgb(40,40,40);
   display: flex;
   flex-direction: center;
   justify-content: center;
@@ -36,7 +36,7 @@
 }
 
 .navigation {
-  background-color: rgb(66, 143, 187);
+  background-color: #111;
   height: 50px;
   display: flex;
   flex-direction: row;

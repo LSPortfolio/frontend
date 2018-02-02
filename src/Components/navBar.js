@@ -194,9 +194,7 @@ class NavBar extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return { logout: () => dispatch(logout()) }
-}
+const mapDispatchToProps = (dispatch) => ({ logout: () => dispatch(logout()) })
 
 const connectedNavBar = connect(mapDispatchToProps)(NavBar)
 export { connectedNavBar as NavBar }
