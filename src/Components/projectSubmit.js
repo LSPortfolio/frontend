@@ -3,25 +3,6 @@ import { FormControl, FormGroup } from 'react-bootstrap';
 // import ClassNavBar from './classNavBar';
 import axios from 'axios';
 
-import cloudinary from 'cloudinary';
-import CLOUDINARY_CLOUD_NAME from '../../src/.env';
-import CLOUDINARY_API_KEY from '../../src/.env';
-import CLOUDINARY_API_SECRET from '../../src/.env';
-
-import fs from 'fs';
-
-cloudinary.config({ 
-  cloud_name: CLOUDINARY_CLOUD_NAME,
-  api_key: CLOUDINARY_API_KEY,
-  api_secret: CLOUDINARY_API_SECRET
-});
-
-let fileToBeUploaded;
-
-// web, mobile, hybrid
-// 0    1       2
-
-// const port = process.env.PORT || 5280;
 
 export class SubmitProject extends Component {
 
@@ -71,12 +52,7 @@ export class SubmitProject extends Component {
     this.setState({ githubUrl: e.target.value });
   }
 
-  handleUploadChange(e) { () => {
-    fileToBeUploaded = e.target.files[0];
-    let formData = new FormData();
-    formData.append('file', fileToBeUploaded);
-    formData.append('upload_preset');
-  }}
+  
 
   handleDescriptionChange(e) {
     this.setState({ description: e.target.value });
@@ -116,10 +92,7 @@ export class SubmitProject extends Component {
   
     const STUPID = 'https://wallpapershome.com/images/wallpapers/norway-3840x2160-5k-4k-wallpaper-fjord-mountains-river-sky-5657.jpg';
 
-    cloudinary.uploader.upload(STUPID, (err, result) => {
-      console.log(err);
-      console.log(result);
-    });
+    
 
     // let content;
     
@@ -130,11 +103,7 @@ export class SubmitProject extends Component {
     //   console.log(data);
     // });
 
-    const uploadWidget = () => {
-      cloudinary.openUploadWidget({ cloud_name: process.env.CLOUDINARY_CLOUD_NAME, upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET, tags:[this.state.tags]}, function(error, result) {
-        console.log(result);
-      });
-    }
+   
 
   }
 
