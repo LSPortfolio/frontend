@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid'
 import '../App.css';
 
 
@@ -142,7 +143,7 @@ class ShowProjects extends Component {
         super(props);
         this.state = {
             pics: {
-                one: require('../Components/TestFiles/1.jpg')
+                // one: require('../Components/TestFiles/1.jpg')
             },
             names: {
                 one: 'John Doe',
@@ -173,9 +174,9 @@ export default class Test2 extends Component {
         super(props);
         this.state = {
             pics: {
-                one: require('../Components/TestFiles/1.jpg'),
-                two: require('../Components/TestFiles/2.jpg'),
-                three: require('../Components/TestFiles/3.jpg'),
+                // one: require('../Components/TestFiles/1.jpg'),
+                // two: require('../Components/TestFiles/2.jpg'),
+                // three: require('../Components/TestFiles/3.jpg'),
             },
             names: {
                 one: 'John Doe',
