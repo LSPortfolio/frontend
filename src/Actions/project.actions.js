@@ -29,13 +29,21 @@ export const newProject = project => {
     function success(project) { return { type: constants.REGISTER_SUCCESS, project } }
     function failure(error) { return { type: constants.REGISTER_FAILURE, error } }
   }
-
-  export const getProjects = () => {
+  
+export const getProjects = () => {
     const promise = axios.get('http://localhost:5280/project/all')
     return({
       type: constants.GET_PROJECTS,
       payload: promise
     });
 
+  }
+
+export const getContributors = () => {
+    const promise = axios.get('http://localhost:5280/user/listStudentsFinished')
+    return({
+      type: constants.GET_CONTRIBUTORS,
+      payload: promise
+    })
   }
 
