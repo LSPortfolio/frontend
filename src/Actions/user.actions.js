@@ -9,7 +9,7 @@ export const register = user => {
     services.register(user).then(
       user => {
         dispatch(success(user))
-        history.push('/')
+        history.push('/submit')
         dispatch(alertActions.success('Registration successful'))
       },
       error => {
@@ -35,7 +35,7 @@ export const login = (username, password) => {
     services.login(username, password).then(
       user => {
         dispatch(success(user))
-        history.push('/')
+        history.push('/submit')
       },
       error => {
         const { response, message } = error

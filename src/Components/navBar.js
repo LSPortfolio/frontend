@@ -69,19 +69,19 @@ class NavBar extends Component {
     return localStorage.getItem('user') ? (
       [
         <Button key={1} href="/signIn" className="navbuttons" onClick={logout}>
-          Sign Out
+          SIGN OUT
         </Button>,
         <Button key={2} href="/Submit" className="navbuttons">
-          Submit
+          SUBMIT
         </Button>
       ]
     ) : pathname === '/signUp' ? (
       <Button href="/signIn" className="navbuttons">
-        Sign In
+        SIGN IN
       </Button>
     ) : (
       <Button href="/signUp" className="navbuttons">
-        Sign Up
+        SIGN UP
       </Button>
     )
   }
@@ -97,12 +97,12 @@ class NavBar extends Component {
                 <img alt="logo" src={require('../LambdaLogo.png')} />
               </div>
               <div className="hidden-sm-down">
-                <h1>Lambda Showcase</h1>
+                <p>LAMBDA SHOWCASE</p>
               </div>
             </div>
             <div className="btn_container">
               {this.navSwitcher(pathname)}
-              <Button href="/Projects" className="navbuttons">Student Projects</Button>
+              <Button href="/Projects" className="navbuttons">STUDENT PROJECTS</Button>
               <DropdownButton pullRight title="Classes" id="classes">
                 <DropdownButton pullRight className="graduated" title="CS1" id="cs1">
                   <MenuItem style={{ color: 'black' }} to="/cs1">All CS1</MenuItem>

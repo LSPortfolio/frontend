@@ -76,35 +76,11 @@ export class SubmitProject extends Component {
     })
   }
 
-  // personalProjectSubmit() {
-  //   const student = this.state.studentName
-  //   const lambdaClass = this.state.lambdaClass
-  //   const projectName = this.state.projectName
-  //   const url = this.state.githubUrl
-  //   const likes = this.state.likes
-  //   const contributors = this.state.contributors
-  //   const tags = this.state.tags
-  //   const description = this.state.description
-  //   const id = this.state.id
-
-  //   const body = {
-  //     student,
-  //     lambdaClass,
-  //     projectName,
-  //     url,
-  //     likes,
-  //     contributors,
-  //     tags,
-  //     description,
-  //     id
-  //   }
-  // }
-
   render() {
     return (
       <div className="container">
         <FormGroup>
-          <h1>Submit Your Personal Project</h1>
+          <h1>Submit Personal Project</h1>
           <FormControl
             className="input_form"
             placeholder="Lambda Class"
