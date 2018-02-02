@@ -17,12 +17,13 @@ module.exports = {
     },
     makeDraft: {
         subject: 'Draft in Progress',
-        html: 'Progress and body of the email goes in here.'
+        html: `<html>Hello ${data.user.username}, Thank you for submitting your project!. Currently your project is a draft, so you can customize the display of the project to your liking. -LambdaShowCase </html>`
     },
     notify_project_like: data => {
         return {
             subject: `${data.user.username} Likes Your Project: ${data.project.name}`,
-            html: `Enter the body of this email here...`
+            html: `<html>
+            Hello ${data.user.username}, ${data.project.name} has just been liked by ${data.user.username}!</html>`
         }
     },
     notify_project_comment: data => {

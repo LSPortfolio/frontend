@@ -160,4 +160,10 @@
   color: black;
 }
 
+.medialogos {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
 /* Official Lambda Color: rgb(66, 143, 187); */
