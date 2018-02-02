@@ -11,6 +11,8 @@ export const constants = {
 
   PROJECT_SUBMIT: 'PROJECT_SUBMITTED',
 
+  GET_PROJECTS: 'GET_PROJECTS',
+
   // User administration constants
   // GETALL_REQUEST: 'USERS_GETALL_REQUEST',
   // GETALL_SUCCESS: 'USERS_GETALL_SUCCESS',

@@ -12,10 +12,9 @@ import { PasswordToken } from './Components';
 import { SubmitProject } from './Components';
 import { SignIn } from './Components/signIn';
 import { SignUp } from './Components/signUp';
-import  Projects  from './Components/Projects';
+import Projects from './Components/Projects';
 import { alertActions } from './Actions';
 import { history } from './Helpers/history';
-import Test from './Components/test';
 
 import './App.css';
 
@@ -31,25 +30,22 @@ class App extends Component {
   render() {
     const { alert } = this.props;
     return (
-      <div className="App">
-          <Router history={ history }>
-            <div>
-                <NavBar history={ history } />
-                <PrivateRoute exact path="/" component={ HomePage } />
-                {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
-                <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
-                  <Route path='/signUp' component={ SignUp } />
-                  <Route path='/signIn' component={ SignIn } />
-                  <Route path='/passwordReset' component={ ForgotPassword } />
-                  <Route path='/passwordToken' component={ PasswordToken } />
-                  <Route path='/submit' component={ SubmitProject } />
-                  <Route path='/test' component={ Test } />
-                  <Route path='/homePage' component={ HomePage } />
-                  <Route path='/Projects' component={ Projects } />
-                </div>
-            </div>
-        </Router>
-      </div>
+      <Router history={ history }>
+        <div className="App">
+          <NavBar history={ history } />
+          <PrivateRoute exact path="/" component={ HomePage } />
+          <PrivateRoute path='/homePage' component={ HomePage } />
+          <Route path='/Projects' component={ Projects } />
+          {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+          <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
+            <Route path='/signUp' component={ SignUp } />
+            <Route path='/signIn' component={ SignIn } />
+            <Route path='/passwordReset' component={ ForgotPassword } />
+            <Route path='/passwordToken' component={ PasswordToken } />
+            <PrivateRoute path='/submit' component={ SubmitProject } />
+          </div>
+        </div>
+      </Router>
     );
   }
 }

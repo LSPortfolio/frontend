@@ -28,4 +28,3 @@ export const newProject = project => {
     function success(project) { return { type: constants.REGISTER_SUCCESS, project } }
     function failure(error) { return { type: constants.REGISTER_FAILURE, error } }
   }
-
