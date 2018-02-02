@@ -16,19 +16,19 @@ const USER_LOGIN = 'http://localhost:5280/user/login';
 
 /* ——— Authentication ——— */
 function register(user) {
-  return axios.post( NEW_USER_HOST, user)
+  return axios.post(NEW_USER_HOST, user)
     .then(handleResponse)
     .then(saveToken);
 }
 
 function login(username, password) {
-  return axios.post( USER_LOGIN, ({ username, password }))
+  return axios.post(USER_LOGIN, ({ username, password }))
     .then(handleResponse)
     .then(saveToken);
 }
 
 function logout() {
-  localStorage.removeItem('user');
+  localStorage.removeItem('user')
 }
 
 /* ——— Project ——— */

@@ -7,9 +7,11 @@ import axios from 'axios'
   you'll have to set it up per docs:
   https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables
   ——— */
-const CLOUDINARY_UPLOAD_PRESET = 'xxx'
-const CLOUDINARY_CLOUD_NAME = 'xxx'
-const CLOUDINARY_API_KEY = 'xxx'
+
+/* ———— REMOVE THIS ———— */
+const CLOUDINARY_UPLOAD_PRESET = 'gisk1vl6'
+const CLOUDINARY_CLOUD_NAME = 'dbquvargx'
+const CLOUDINARY_API_KEY = '236448318463957'
 
 export class SubmitProject extends Component {
   constructor() {
