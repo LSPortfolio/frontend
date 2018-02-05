@@ -3,8 +3,10 @@ import Masonry from 'react-masonry-layout'
 
 import heart from '../Assets/heart.svg'
 import chat from '../Assets/chat.svg'
+import { getProjects } from '../Actions'
+import { connect } from 'react-redux'
 
-export default class Projects extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -61,6 +63,10 @@ export default class Projects extends Component {
     this.createGrid = this.createGrid.bind(this)
   }
 
+  componentDidMount() {
+    this.props.getProjects();
+  }
+
   createGrid() {
     return this.state.items.map((project, i) => {
       return <div key={i} className="project">
@@ -85,3 +91,5 @@ export default class Projects extends Component {
 }
 
 const masonryOptions = [ { columns: 2, gutter: 20 }, { mq: '768px', columns: 3, gutter: 20 }, { mq: '1024px', columns: 4, gutter: 10 } ]
+
+export default connect(mapStateToProps, {getProjects})(Projects);

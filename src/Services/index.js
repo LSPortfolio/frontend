@@ -32,20 +32,20 @@ function logout() {
 }
 
 /* ——— Project ——— */
-// function createProject(project) {
-//   return axios.post(HOST_PROJECT, project)
-//     .then(handleResponse);
-// }
+function createProject(project) {
+  return axios.post(HOST_PROJECT, project)
+    .then(handleResponse);
+}
 
-// function addComment(contributer, comment) {
-//   return axios.post('/createproject/${commentId}', ({ contributer, comment }))
-//   .then(handleResponse);
-// }
+function addComment(contributer, comment) {
+  return axios.post('/createproject/${commentId}', ({ contributer, comment }))
+  .then(handleResponse);
+}
 
-// function deleteComment(contributer, comment) {
-//   return axios.delete('/createproject/${commentId}', ({ contributer, comment }))
-//   .then(handleResponse);
-// }
+function deleteComment(contributer, comment) {
+  return axios.delete('/createproject/${commentId}', ({ contributer, comment }))
+  .then(handleResponse);
+}
 
 /* ——— Utilities ——— */
 function saveToken(user) {
