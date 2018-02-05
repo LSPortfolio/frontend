@@ -12,7 +12,7 @@ export class FileShare extends Component {
             <div className='logoholder'>
                 <img className='logosize' src={ linkedinLogo } />
                 <img className='logosize' src={ facebookLogo } />
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?via=LambdaSchool&text=Hello,%20World!&hashtags=LambdaSchool" data-size="large" hashtags="lambda">
+                <a class="twitter-share-button" href={`https://twitter.com/intent/tweet?via=LambdaSchool&text=Hello,%20World!&hashtags=LambdaSchool`} data-size="large" hashtags="lambda">
                     <img className='logosize' src={ twitterLogo } />
                 </a>
             </div>
