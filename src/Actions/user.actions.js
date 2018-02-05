@@ -14,12 +14,13 @@ export const register = user => {
       },
       error => {
         const { response, message } = error
+        console.log(response);
         if (!response) {
           dispatch(failure(message))
           dispatch(alertActions.error(message))
         } else if (response.hasOwnProperty('data')) {
-          dispatch(failure(response.data))
-          dispatch(alertActions.error(response.data))
+          dispatch(failure(response.data.message))
+          dispatch(alertActions.error(response.data.message))
         }
       }
     )
@@ -43,8 +44,8 @@ export const login = (username, password) => {
           dispatch(failure(message))
           dispatch(alertActions.error(message))
         } else if (response.hasOwnProperty('data')) {
-          dispatch(failure(response.data))
-          dispatch(alertActions.error(response.data))
+          dispatch(failure(response.data.message))
+          dispatch(alertActions.error(response.data.message))
         }
       }
     )
