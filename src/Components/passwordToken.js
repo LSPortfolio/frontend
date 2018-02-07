@@ -8,27 +8,33 @@ export class PasswordToken extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
-      token: ''
+      token: '',
+      password: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    const url = window.location.href;
+    url.replace()
+  }
+
   handleChange(e) {
-    this.setState({ email: e.target.value })
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(e) {
     e.preventDefault()
     const data = {
-      answer: this.state.answer,
+      token: this.state.token,
       password: this.state.password
     }
     axios
-      .post(`http://localhost://${port}/user/resetPassword`, data)
+      .put(`http://localhost:${port}/user/resetPassword`, data)
       .then(res => {
-        alert('Check your email for a link to reset your password!')
+        alert('Password reset Successful!')
       })
       .catch(err => {
         alert('Password reset unsuccessful!')
@@ -39,9 +45,24 @@ export class PasswordToken extends Component {
     return (
       <div>
         <form>
-          <label>Please provide your email:</label>
+          <label>Please provide the given code:</label>
           <FormGroup>
-            <FormControl onChange={this.handleChange} />
+            <FormControl 
+              className="input_form"
+              placeholder="Code"
+              onChange={this.handleChange}
+              value={this.state.token}
+              type="text"
+              name="token"
+            />
+            <FormControl 
+              className="input_form"
+              placeholder="New Password"
+              onChange={this.handleChange}
+              value={this.state.password}
+              type="password"
+              name="password"
+            />
           </FormGroup>
           <button onClick={this.handleSubmit}>Submit</button>
         </form>

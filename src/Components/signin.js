@@ -35,7 +35,7 @@ class SignIn extends Component {
 
   render() {
     const { loggingIn } = this.props
-    const { username, password, submitted } = this.state
+    const { username, password, submitted } = this.state;
     return (
       <div className="container" id="signin_container">
         <h2>Sign In</h2>
@@ -61,7 +61,7 @@ class SignIn extends Component {
           </FormGroup>
           <div className="buttons_layout">
             <button onClick={this.handleSubmit}>Sign In</button>
-            <Link to="/passwordReset">Forgot Password</Link>
+            <Link to="/forgotPassword">Forgot Password</Link>
           </div>
           {loggingIn && (
             <img
