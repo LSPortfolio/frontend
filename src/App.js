@@ -34,7 +34,8 @@ class App extends Component {
         <div className="App">
           <NavBar history={ history } />
           <PrivateRoute exact path="/" component={ HomePage } />
-          <PrivateRoute path='/homePage' component={ HomePage } />
+{/* make home page private route after done */}
+          <Route path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
