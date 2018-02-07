@@ -14,6 +14,7 @@ import { SignIn } from './Components/signIn';
 import { SignUp } from './Components/signUp';
 import Projects from './Components/Projects';
 import { alertActions } from './Actions';
+import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 
 import './App.css';
@@ -41,8 +42,9 @@ class App extends Component {
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />
             <Route path='/signIn' component={ SignIn } />
-            <Route path='/passwordReset' component={ ForgotPassword } />
+            <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
+            <Route path='/share' component={ FileShare } />
             <PrivateRoute path='/submit' component={ SubmitProject } />
           </div>
         </div>
