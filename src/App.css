@@ -23,6 +23,22 @@
   align-content: center;
 }
 
+.homePage {
+  text-align: center;
+}
+
+#image2 {
+  padding-top: .5cm;
+}
+
+.para {
+  font-family: Verdana;
+  font-size: 25px;
+  padding-top: 2cm;
+}
+
+
+
 .header {
   width: 100vw;
 }
