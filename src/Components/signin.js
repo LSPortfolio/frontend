@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { FormControl, FormGroup } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FormControl, FormGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-import { login } from '../Actions'
+import { login } from '../Actions';
 
 class SignIn extends Component {
   constructor(props) {

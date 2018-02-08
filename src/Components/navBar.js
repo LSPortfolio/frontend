@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Button, DropdownButton, MenuItem } from 'react-bootstrap'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; 
 
-import { logout } from '../Actions'
+import { logout } from '../Actions';
 
 const cs1List = [
   'Jiovan Melendez',
@@ -71,7 +72,7 @@ class NavBar extends Component {
         <Button key={1} href="/signIn" className="navbuttons" onClick={logout}>
           SIGN OUT
         </Button>,
-        <Button key={2} href="/Submit" className="navbuttons">
+        <Button key={2} href="/projectName" className="navbuttons">
           SUBMIT
         </Button>
       ]
@@ -94,7 +95,7 @@ class NavBar extends Component {
           <div className="navigation">
             <div className="brand">
               <div className="logo">
-                <img alt="logo" src={require('../LambdaLogo.png')} />
+                <Link to="/"><img alt="logo" src={require('../LambdaLogo.png')} /></Link>
               </div>
               <div className="hidden-sm-down">
                 <p>LAMBDA SHOWCASE</p>

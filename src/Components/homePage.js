@@ -8,7 +8,7 @@ const HomePage = () => <div className="homePage">
     Well to answer your question, we are an online Computer Science Academy, that houses some of the
     most brilliant minds in Tech industry. Lambda Showcase was created to help display the creative work
     of Lambda Students. If you have any questions please contact us.<br /><br /><br />
-    "Lambda School doesn’t just train people; Lambda School bets on them." - Austen Allred
+    "Lambda School doesn’t just train people, Lambda School bets on them." - Austen Allred
     <img src="https://avatars2.githubusercontent.com/u/1447305?s=400&v=4" 
     style={{height:60, width: 60}}/>
     

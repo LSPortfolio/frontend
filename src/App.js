@@ -10,15 +10,14 @@ import { NavBar } from './Components';
 import { ForgotPassword } from './Components';
 import { PasswordToken } from './Components';
 import { SubmitProject } from './Components';
-import { SignIn } from './Components/signIn';
-import { SignUp } from './Components/signUp';
+import { SignIn } from './Components/signin';
+import { SignUp } from './Components/signup';
 import Projects from './Components/Projects';
 import { alertActions } from './Actions';
 import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 
 import './App.css';
-import ProjectDisplay from './Components/projectDisplay';
 
 class App extends Component {
   constructor(props) {
@@ -37,9 +36,8 @@ class App extends Component {
           <NavBar history={ history } />
           <PrivateRoute exact path="/" component={ HomePage } />
 {/* make home page private route after done */}
-          <Route path='/homePage' component={ HomePage } />
+          <PrivateRoute path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
-          <Route path="/view" component={ProjectDisplay} />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />
@@ -47,7 +45,7 @@ class App extends Component {
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
             <Route path='/share' component={ FileShare } />
-            <Route path='/submit' component={ SubmitProject } />
+            <PrivateRoute path='/ProjectName' component={ SubmitProject } />
           </div>
         </div>
       </Router>
