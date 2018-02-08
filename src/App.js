@@ -18,6 +18,7 @@ import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 
 import './App.css';
+import ProjectDisplay from './Components/projectDisplay';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends Component {
 {/* make home page private route after done */}
           <Route path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
+          <Route path="/view" component={ProjectDisplay} />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />
@@ -45,7 +47,7 @@ class App extends Component {
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
             <Route path='/share' component={ FileShare } />
-            <PrivateRoute path='/submit' component={ SubmitProject } />
+            <Route path='/submit' component={ SubmitProject } />
           </div>
         </div>
       </Router>
