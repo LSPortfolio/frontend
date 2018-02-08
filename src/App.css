@@ -263,4 +263,53 @@ position: relative;
   flex-direction: space-around;
 }
 
+.modalstyles {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.mediaclosebutton {
+  background: #ff4f4f;
+  width: 30%;
+}
+
+.mediasharebutton {
+  width: 30%;
+}
+
+.mediasharebuttonlinkedin {
+  background: rgb(0,99,172);
+  width: 30%;
+}
+
+.mediasharebuttonfacebook {
+  background: rgb(43,80,169);
+  width: 30%;
+}
+
+.mediasharebuttontwitter {
+  background: rgb(0,143,247);
+  width: 30%;
+}
+
+.mediasharebuttonemail {
+  background: black;
+  color: white;
+  width: 30%;
+}
+
+.mediabuttons {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imagesmadeformediabuttons {
+  cursor: pointer;
+}
+
 /* Official Lambda Color: rgb(66, 143, 187); */

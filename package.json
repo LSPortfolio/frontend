@@ -17,6 +17,7 @@
     "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
     "react-masonry-layout": "^0.3.0",
+    "react-modal": "^3.1.12",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
