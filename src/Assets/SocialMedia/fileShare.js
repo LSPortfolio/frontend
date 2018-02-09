@@ -28,6 +28,11 @@ export class FileShare extends Component {
             emailBody: '',
             liked: false
         };
+        this.handleLike = this.handleLike.bind(this);
+    }
+
+    handleLike() {
+        this.setState({ liked: !this.state.liked });
     }
 
     render() {
@@ -109,8 +114,10 @@ export class FileShare extends Component {
 
 
 
-                {/**/}
-                <span id='likebutton' onClick={() => this.setState({ liked: !this.state.liked })} style={{marginTop: 8, color: `${this.state.liked===true ? 'red' : 'white'}`, cursor: 'pointer', fontSize: 30}} className="glyphicon glyphicon-heart"></span>
+                {/*
+                    Like Button Component
+                */}
+                <span id='likebutton' onClick={ this.handleLike } style={{color: `${this.state.liked===true ? 'red' : 'white'}`, marginTop: 8, fontSize: 30}} className="glyphicon glyphicon-heart"></span>
 
             </div>
         );
