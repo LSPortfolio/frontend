@@ -1,13 +1,13 @@
-// import React from 'react';
+let commentId = 1;
 
-//  export const commentActions = {
+export const addComment = (author, text) => ({
+    type: 'ADD_COMMENT',
+    id: commentId++,
+    author: author,
+    text: text
+})
 
-// }
-
-// const addComments = () => {
-
-// }
-
-// const deleteComment = () => {
-
-// }
+export const setComments = (commentList) => ({
+    type: 'SET_COMMENTS',
+    commentList: commentList
+  });
