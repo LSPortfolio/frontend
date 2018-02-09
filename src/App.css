@@ -312,4 +312,8 @@ position: relative;
   cursor: pointer;
 }
 
+#likebutton {
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
 /* Official Lambda Color: rgb(66, 143, 187); */

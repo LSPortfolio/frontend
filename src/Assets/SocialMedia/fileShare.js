@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { FormGroup, FormControl, ButtonToolbar } from 'react-bootstrap';
+import { FormGroup, FormControl, ButtonToolbar, Button } from 'react-bootstrap';
 import Modal from 'react-modal';
 
 const linkedinLogo = require('../SocialMedia/linkedinLogo.png');
@@ -26,6 +26,7 @@ export class FileShare extends Component {
             emailBCC: '',
             emailSubject: '',
             emailBody: '',
+            liked: false
         };
     }
 
@@ -70,15 +71,14 @@ export class FileShare extends Component {
                         />
                     </FormGroup>
                     <div>
-                        <button>
-                            <a onClick={() => this.setState({ emailToggleVisible: !this.state.emailToggleVisible })} href={`mailto:${this.state.emailrecipient.split(' ').join()}?&cc=${this.state.emailCC.split(' ').join()}&subject=${this.state.emailSubject.split(' ').join('%20')}&bcc=${this.state.emailBCC.split(' ').join()}&body=${this.state.emailBody.split(' ').join('%20')}`}>
-                                Send
-                            </a>
-                        </button>
-                        
-                        <button onClick={() => this.setState({ emailToggleVisible: !this.state.emailToggleVisible })}>
-                            Cancel
-                        </button>
+                        <a href={`mailto:${this.state.emailrecipient.split(' ').join()}?&cc=${this.state.emailCC.split(' ').join()}&subject=${this.state.emailSubject.split(' ').join('%20')}&bcc=${this.state.emailBCC.split(' ').join()}&body=${this.state.emailBody.split(' ').join('%20')}`}>
+                            <Button>
+                                <span style={{color: 'white'}} className="glyphicon glyphicon-envelope"> Send</span>
+                            </Button>
+                        </a>
+                        <Button style={{color: 'white'}} onClick={() => this.setState({ emailToggleVisible: !this.state.emailToggleVisible })}>
+                            <span style={{color: 'white'}} className="glyphicon glyphicon-trash"> Cancel</span>
+                        </Button>
                     </div>
                 </Modal>
                 {/*LinkedIn*/}
@@ -97,6 +97,10 @@ export class FileShare extends Component {
                 <a onClick={() => this.setState({ emailToggleVisible: !this.state.emailToggleVisible })}>
                     <img className='logosize imagesmadeformediabuttons' src={emailLogo}  target="_blank"/>
                 </a>
+
+                <span id='likebutton' onClick={() => this.setState({ liked: !this.state.liked })} style={{
+                    marginTop: 8, color: `${this.state.liked===true ? 'red' : 'white'}`, cursor: 'pointer', fontSize: 30
+                }} className="glyphicon glyphicon-heart"></span>
 
             </div>
         );
