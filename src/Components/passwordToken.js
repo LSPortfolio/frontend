@@ -26,7 +26,7 @@ export class PasswordToken extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const data = {
       token: this.state.token,
       password: this.state.password
