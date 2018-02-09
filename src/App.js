@@ -16,6 +16,7 @@ import Projects from './Components/Projects';
 import { alertActions } from './Actions';
 import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
+import Contributors from './Components/Contributors';
 
 import './App.css';
 import ProjectDisplay from './Components/projectDisplay';
@@ -48,6 +49,7 @@ class App extends Component {
             <Route path='/passwordToken' component={ PasswordToken } />
             <Route path='/share' component={ FileShare } />
             <Route path='/submit' component={ SubmitProject } />
+            <Route path='/Contributors' component={ Contributors } />
           </div>
         </div>
       </Router>

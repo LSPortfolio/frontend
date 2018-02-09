@@ -98,9 +98,19 @@ export class FileShare extends Component {
                     <img className='logosize imagesmadeformediabuttons' src={emailLogo}  target="_blank"/>
                 </a>
 
-                <span id='likebutton' onClick={() => this.setState({ liked: !this.state.liked })} style={{
-                    marginTop: 8, color: `${this.state.liked===true ? 'red' : 'white'}`, cursor: 'pointer', fontSize: 30
-                }} className="glyphicon glyphicon-heart"></span>
+
+
+
+
+
+
+
+
+
+
+
+                {/**/}
+                <span id='likebutton' onClick={() => this.setState({ liked: !this.state.liked })} style={{marginTop: 8, color: `${this.state.liked===true ? 'red' : 'white'}`, cursor: 'pointer', fontSize: 30}} className="glyphicon glyphicon-heart"></span>
 
             </div>
         );
