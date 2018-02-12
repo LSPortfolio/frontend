@@ -11,8 +11,8 @@ export const services = {
 }
 
 // const HOST_PROJECT = 'http://localhost:5280/createproject';
-const NEW_USER_HOST = 'https://rolandbackend.herokuapp.com/user/create';
-const USER_LOGIN = 'https://rolandbackend.herokuapp.com/user/login';
+const NEW_USER_HOST = 'https://lambda-showcase-backend.herokuapp.com/user/create';
+const USER_LOGIN = 'https://lambda-showcase-backend.herokuapp.com/user/login';
 
 /* ——— Authentication ——— */
 function register(user) {

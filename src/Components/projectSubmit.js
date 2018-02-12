@@ -49,7 +49,7 @@ export class SubmitProject extends Component {
   } 
 
   handleContributors(e) {
-    axios.put('https://rolandbackend.herokuapp.com/user/find', { data: this.state.contributor })
+    axios.put('https://lambda-showcase-backend.herokuapp.com/user/find', { data: this.state.contributor })
       .then(response => {
         this.state.contributors.push({ user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
         alert(`You have added ${this.state.contributor} as a contributor`);
