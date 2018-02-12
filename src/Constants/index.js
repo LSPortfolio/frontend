@@ -9,9 +9,11 @@ export const constants = {
 
   LOGOUT: 'USERS_LOGOUT',
 
-  PROJECT_SUBMIT: 'PROJECT_SUBMITTED',
+  // PROJECT_SUBMIT: 'PROJECT_SUBMITTED',
 
   GET_PROJECTS: 'GET_PROJECTS',
+
+  PICK_PROJECT: 'PICK_PROJECT',
 
   // User administration constants
   // GETALL_REQUEST: 'USERS_GETALL_REQUEST',
