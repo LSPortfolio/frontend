@@ -21,6 +21,7 @@ export class SubmitProject extends Component {
     this.state = {
       projectName: '',
       contributor: '',
+      contributorName: [],
       contributors: [],
       description: '',
       files: [],
@@ -52,7 +53,8 @@ export class SubmitProject extends Component {
     axios.put('https://lambda-showcase-backend.herokuapp.com/user/find', { data: this.state.contributor })
       .then(response => {
         this.state.contributors.push({ user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
-        alert(this.state.contributors);
+        this.state.contributorName.push(this.state.contributor);
+        alert(this.state.contributorName);
       })
       .catch(response => {
         alert('Server error or User could not be found');
@@ -62,7 +64,7 @@ export class SubmitProject extends Component {
   handleTags(e) {
     this.state.tags.push(this.state.tag);
     alert(this.state.tags);
-  }
+  }dir
 
   fileUpload(e) {
     if (e.target.files.length > 0) {
@@ -146,8 +148,8 @@ export class SubmitProject extends Component {
           />
           <FormControl
             className="input_form"
-            placeholder="Contributors"
-            name="contributor: Must use username or email to add the contributor and must have an account"
+            placeholder="Contributors: : Must use username or email to add the contributor and must have an account"
+            name="contributor"
             onChange={this.handleChange}
           />
           <FormControl
