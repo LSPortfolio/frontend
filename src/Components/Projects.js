@@ -71,7 +71,7 @@ class Projects extends Component {
   createGrid() {
     return this.props.projects.map((project, i) => {
       return <div key={i} className="project">
-        <img alt="" className="project_img" src={project.cover} />
+        <img alt="" className="project_img" src="https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/3293/s200/lambda400full.png" />
         <h4><Link to={`/project/single${project._id}`}>{project.projectName}</Link></h4>
         <div className="icons">
           <img alt="like" className="project_icn" src={heart} />
