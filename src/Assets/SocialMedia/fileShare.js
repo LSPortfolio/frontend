@@ -103,14 +103,6 @@ export class FileShare extends Component {
                     <img className='logosize imagesmadeformediabuttons' src={emailLogo}  target="_blank"/>
                 </a>
 
-
-
-
-
-
-
-
-
                 {/*
                     Like Button Component
                 */}
