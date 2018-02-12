@@ -40,7 +40,7 @@ class App extends Component {
 {/* make home page private route after done */}
           <Route path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
-          <Route path="/view" component={ProjectDisplay} />
+          <Route path="/project/single${id}" component={ProjectDisplay} />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />
