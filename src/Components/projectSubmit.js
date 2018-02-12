@@ -52,7 +52,7 @@ export class SubmitProject extends Component {
     axios.put('https://lambda-showcase-backend.herokuapp.com/user/find', { data: this.state.contributor })
       .then(response => {
         this.state.contributors.push({ user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
-        alert(`You have added ${this.state.contributor} as a contributor`);
+        alert(this.state.contributors);
       })
       .catch(response => {
         alert('Server error or User could not be found');
@@ -147,7 +147,7 @@ export class SubmitProject extends Component {
           <FormControl
             className="input_form"
             placeholder="Contributors"
-            name="contributor"
+            name="contributor: Must use username or email to add the contributor and must have an account"
             onChange={this.handleChange}
           />
           <FormControl
@@ -156,7 +156,7 @@ export class SubmitProject extends Component {
             name="responsibility"
             onChange={this.handleChange}
           />
-          <button onClick={ this.handleContributors }>Press to add more contributors</button>
+          <button onClick={ this.handleContributors }>Press here to add more contributors. PS. This is still a beta form</button>
           <FormControl
             className="input_form"
             placeholder="tags"
