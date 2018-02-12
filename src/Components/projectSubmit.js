@@ -106,7 +106,7 @@ export class SubmitProject extends Component {
     //lambdaClass: '',
     tags: this.state.tags,
     }
-    axios.post('http://localhost:3030/project/create', data)
+    axios.post('https://lambda-showcase-backend.herokuapp.com/project/create', data)
       .then(response => {
         alert('Project Sent');
       })
