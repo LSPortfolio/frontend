@@ -11,8 +11,8 @@ export const services = {
 }
 
 // const HOST_PROJECT = 'http://localhost:5280/createproject';
-const NEW_USER_HOST = 'http://localhost:5280/user/create';
-const USER_LOGIN = 'http://localhost:5280/user/login';
+const NEW_USER_HOST = 'https://rolandbackend.herokuapp.com/user/create';
+const USER_LOGIN = 'https://rolandbackend.herokuapp.com/user/login';
 
 /* ——— Authentication ——— */
 function register(user) {
@@ -28,7 +28,8 @@ function login(username, password) {
 }
 
 function logout() {
-  localStorage.removeItem('user')
+  localStorage.removeItem('user');
+  localStorage.removeItem('data');
 }
 
 /* ——— Project ——— */
@@ -51,6 +52,7 @@ function logout() {
 function saveToken(user) {
   if (user && user.data.token) {
     localStorage.setItem('user', JSON.stringify(user.data.token));
+    localStorage.setItem('data', JSON.stringify(user.data.user._id));
   }
   return user;
 }

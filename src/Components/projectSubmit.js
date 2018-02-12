@@ -1,8 +1,10 @@
-import React, { Component } from 'react'
-import { FormControl, FormGroup } from 'react-bootstrap'
-import axios from 'axios'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FormControl, FormGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-/* ——— Put your own Cloudinary info here for now,
+/* ——— Put your own Cloudinary info here for now,
   process.env doesn't work right out of the box
   you'll have to set it up per docs:
   https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-custom-environment-variables
@@ -17,29 +19,49 @@ export class SubmitProject extends Component {
   constructor() {
     super()
     this.state = {
+      projectName: '',
+      contributor: '',
       contributors: [],
       description: '',
       files: [],
       fileUrls: [],
       githubUrl: '',
       id: 0,
-      lambdaClass: '',
-      likes: 0,
+      //lambdaClass: '',
       projectName: '',
       studentName: '',
-      tags: []
+      tag: '',
+      tags: [],
+      responsibility: '',
+
     }
 
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
     this.fileUpload = this.fileUpload.bind(this)
     this.submitFiles = this.submitFiles.bind(this)
+    this.handleContributors = this.handleContributors.bind(this);
+    this.handleTags = this.handleTags.bind(this);
   }
 
   handleChange(e) {
     const { name, value } = e.target
-    name === 'lambdaClass'
-      ? this.setState({ [name]: value.toUpperCase() })
-      : this.setState({ [name]: value })
+    this.setState({ [name]: value });
+  } 
+
+  handleContributors(e) {
+    axios.put('https://rolandbackend.herokuapp.com/user/find', { data: this.state.contributor })
+      .then(response => {
+        this.state.contributors.push({ user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
+        alert(`You have added ${this.state.contributor} as a contributor`);
+      })
+      .catch(response => {
+        alert('Server error or User could not be found');
+      });
+  };
+
+  handleTags(e) {
+    this.state.tags.push(this.state.tag);
+    alert(this.state.tags);
   }
 
   fileUpload(e) {
@@ -52,7 +74,7 @@ export class SubmitProject extends Component {
   }
 
   submitFiles = () => {
-    const { files } = this.state
+    const { files } = this.state;
     const urls = []
 
     const uploaded = files.map(file => {
@@ -69,11 +91,28 @@ export class SubmitProject extends Component {
     })
 
     axios.all(uploaded).then(() => {
-      /* ——— Once the files have been uploaded to Cloudinary,
-      do something in the backend with the URL's ——— */
+      //——— Once the files have been uploaded to Cloudinary,
+     //do something in the backend with the URL's ——— 
       this.setState(prev => ({ fileUrls: [...prev.fileUrls, ...urls]}),
-        () => console.log(this.state.fileUrls))
-    })
+        () => { console.log("success") });
+    });
+    const data = {
+    projectName: this.state.projectName,
+    createdBy: JSON.parse(localStorage.getItem('data')),
+    contributors: this.state.contributors,
+    description: this.state.description,
+    media: this.state.fileUrls,
+    github: this.state.githubUrl,
+    //lambdaClass: '',
+    tags: this.state.tags,
+    }
+    axios.post('http://localhost:3030/project/create', data)
+      .then(response => {
+        alert('Project Sent');
+      })
+      .catch(response => {
+        alert('did not work');
+      })
   }
 
   render() {
@@ -81,18 +120,18 @@ export class SubmitProject extends Component {
       <div className="container">
         <FormGroup>
           <h1>Submit Personal Project</h1>
-          <FormControl
+          {/*<FormControl
             className="input_form"
             placeholder="Lambda Class"
             name="lambdaClass"
             onChange={this.handleChange}
-          />
-          <FormControl
+          />*/}
+          {/*<FormControl
             className="input_form"
-            placeholder="Name"
+            placeholder="Student Name"
             name="studentName"
             onChange={this.handleChange}
-          />
+          />*/}
           <FormControl
             className="input_form"
             placeholder="Project Name"
@@ -108,14 +147,23 @@ export class SubmitProject extends Component {
           <FormControl
             className="input_form"
             placeholder="Contributors"
-            name="contributors"
+            name="contributor"
             onChange={this.handleChange}
           />
           <FormControl
             className="input_form"
-            name="tags"
+            placeholder="Contributors Responsibility"
+            name="responsibility"
             onChange={this.handleChange}
           />
+          <button onClick={ this.handleContributors }>Press to add more contributors</button>
+          <FormControl
+            className="input_form"
+            placeholder="tags"
+            name="tag"
+            onChange={this.handleChange}
+          />
+          <button onClick={ this.handleTags }>Press to add more tags</button>
           <textarea
             className="form-control"
             placeholder="Description"
@@ -131,6 +179,7 @@ export class SubmitProject extends Component {
             style={{ marginBottom: 30 }}
             multiple
           />
+          <Link to="/"><button>Exit</button></Link>
           <button onClick={this.submitFiles}>Submit</button>
         </FormGroup>
       </div>
