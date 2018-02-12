@@ -39,6 +39,7 @@ export class ForgotPassword extends Component {
     return (
       <div className="container">
         <form>
+          <h2>THIS IS A STUB!! IT WORKS, BUT EMAIL FUNCTIONALITY IS NOT APPLIED YET.. A WORK IN PROGRESS </h2>
           <h2>Forgot Password</h2>
           <br />
           <FormGroup>
