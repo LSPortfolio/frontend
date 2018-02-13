@@ -3,8 +3,7 @@ import Header from './Header';
 import { FormGroup, FormControl } from 'react-bootstrap';
 import data from './something';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
+import axios from 'axios'
 import './submit.css';
 
 
@@ -16,7 +15,6 @@ class ContentFinal extends Component {
   }
 
   handleSubmit() {
-    console.log(data);
     axios.post('https://lambda-showcase-backend.herokuapp.com/project/create', data)
       .then(response => {
         alert('Project Sent');
