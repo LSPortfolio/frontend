@@ -25,7 +25,9 @@ class ProjectDisplay extends Component {
             <div className="boxmodel">
             
                 <h1>{this.props.pickedProject.projectName}</h1>
-                <h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>
+                <h2>{this.props.pickedProject.created}</h2>
+                {/*<h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>*/}
+
                 <div style={{display: 'flex', flexDirection:'column'}}>
                     <a target='_blank' href={this.props.pickedProject.github}><img className='logosize imagesmadeformediabuttons'src={require('../Assets/SocialMedia/githubLogo.png')}/></a>
                     <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
