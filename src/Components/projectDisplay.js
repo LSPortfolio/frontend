@@ -25,6 +25,7 @@ import { FileShare } from '../Assets/SocialMedia/fileShare';
             <div className="boxmodel">
             
                 <h1>{this.props.pickedProject.projectName}</h1>
+                <h2>{this.props.pickedProject.created}</h2>
                 <h3>{this.props.pickedProject.github}</h3>
                 <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
                 <FileShare />

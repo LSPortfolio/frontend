@@ -38,7 +38,7 @@ class App extends Component {
           <NavBar history={ history } />
           <PrivateRoute exact path="/" component={ HomePage } />
 {/* make home page private route after done */}
-          <Route path='/homePage' component={ HomePage } />
+          <PrivateRoute path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
           <Route path='/project/single:id' component={ ProjectDisplay } />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
@@ -48,7 +48,7 @@ class App extends Component {
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
             <Route path='/share' component={ FileShare } />
-            <Route path='/submit' component={ SubmitProject } />
+            <PrivateRoute path='/submit' component={ SubmitProject } />
             <Route path='/Contributors' component={ Contributors } />
           </div>
         </div>
