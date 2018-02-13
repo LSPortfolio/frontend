@@ -28,11 +28,13 @@ class ProjectDisplay extends Component {
                 <h2>{this.props.pickedProject.created}</h2>
                 {/*<h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>*/}
 
-                <div style={{display: 'flex', flexDirection:'column'}}>
+                
+                    
+                <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
+                <div style={{display: 'flex', flexDirection:'row'}}>
+                    <FileShare />
                     <a target='_blank' href={this.props.pickedProject.github}><img className='logosize imagesmadeformediabuttons'src={require('../Assets/SocialMedia/githubLogo.png')}/></a>
-                    <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
                 </div>
-                <FileShare />
                 <p>{this.props.pickedProject.description}</p>
 
 
@@ -53,7 +55,6 @@ class ProjectDisplay extends Component {
                 </FormGroup>
                 <button>Submit</button>
             </figure> */}
-            
             </div>
         );
     }
