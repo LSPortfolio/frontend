@@ -9,7 +9,7 @@ import HomePage from './Components/homePage';
 import { NavBar } from './Components';
 import { ForgotPassword } from './Components';
 import { PasswordToken } from './Components';
-import { SubmitProject } from './Components';
+//import { SubmitProject } from './Components';
 import { SignIn } from './Components/signin';
 import { SignUp } from './Components/signup';
 import Projects from './Components/Projects';
@@ -17,6 +17,16 @@ import { alertActions } from './Actions';
 import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 import Contributors from './Components/Contributors';
+
+//New Submit!!//
+import ContentHome from './Components/submit/contentHome';
+import ContentDesc from './Components/submit/contentDesc';
+import addContributors from './Components/submit/contentContributors';
+import ContentMedia from './Components/submit/contentMedia';
+import ContentCover from './Components/submit/contentCover';
+import ContentFinal from './Components/submit/contentSubmit';
+import './Components/submit/submit.css';
+//=========================//
 
 import './App.css';
 import ProjectDisplay from './Components/projectDisplay';
@@ -48,9 +58,19 @@ class App extends Component {
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
             <Route path='/share' component={ FileShare } />
-            <Route path='/submit' component={ SubmitProject } />
+            </div>
+    {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}
+              {/*This is the new submit*/}
+              <div style={{paddingTop: "50px"}}>
+              <Route path="/submit" component={ ContentHome } />
+              </div>
+              <Route path='/submit/content/desc' component={ ContentDesc } />
+              <Route path='/submit/content/contributors' component={ addContributors } />
+              <Route path='/submit/content/media' component={ ContentMedia } />
+              <Route path='/submit/content/cover' component={ ContentCover } />
+              <Route path='/submit/content/final' component={ ContentFinal } />
+              {/*================================================*/}
             <Route path='/Contributors' component={ Contributors } />
-          </div>
         </div>
       </Router>
     );
