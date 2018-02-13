@@ -52,12 +52,13 @@ export class SubmitProject extends Component {
   handleContributors(e) {
     axios.put('https://lambda-showcase-backend.herokuapp.com/user/find', { data: this.state.contributor })
       .then(response => {
-        this.state.contributors.push({ user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
+        this.state.contributors.push({ name: response.data.fullname, user: response.data._id, role: response.data.role, responsibilty: this.state.responsibility });
         this.state.contributorName.push(this.state.contributor);
         alert(this.state.contributorName);
       })
       .catch(response => {
-        alert('Server error or User could not be found');
+        alert('Could not find user, but pushed up the name of the contributor instread');
+        this.state.contributors.push({ name: this.state.contributor })
       });
   };
 

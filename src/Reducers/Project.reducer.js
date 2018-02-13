@@ -1,25 +1,23 @@
-import { constants } from '../Constants';
-import { combineReducers } from 'redux';
+// import { constants } from '../Constants';
+import { GET_PROJECTS, PICK_PROJECT } from '../Actions/project.actions';
 
-export const projectReducer = (projects = [], action) => {
+export const projects = (state = [], action) => {
     switch (action.type) {
-        case constants.GET_PROJECTS:
+        case GET_PROJECTS:
             return action.payload.data;
         default:
-            return projects;
+            return state;
     };
 };
 
- pickedProjectReducer = (pickedProject = {}, action) => {
+ export const pickedProject = (state = {}, action) => {
 	switch (action.type) {
-    	case constants.PICK_PROJECT:
+    	case PICK_PROJECT:
     		return action.payload.data;
     default: 
-        return pickedProject;
+        return state;
     };
 };
 
-const rootReducer = combineReducers({
-	projects: projectReducer,
-	pickedProject: pickedProjectReducer
-});
+
+
