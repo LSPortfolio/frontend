@@ -15,7 +15,7 @@ import { SignUp } from './Components/signup';
 import Projects from './Components/Projects';
 import ProjectDisplay from './Components/projectDisplay';
 import { alertActions } from './Actions';
-import { FileShare } from '../src/Assets/SocialMedia/fileShare';
+// import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 import Contributors from './Components/Contributors';
 
@@ -47,7 +47,7 @@ class App extends Component {
             <Route path='/signIn' component={ SignIn } />
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
-            <Route path='/share' component={ FileShare } />
+            {/*<Route path='/share' component={ FileShare } />*/}
             <PrivateRoute path='/submit' component={ SubmitProject } />
             <Route path='/Contributors' component={ Contributors } />
           </div>

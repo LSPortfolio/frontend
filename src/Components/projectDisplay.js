@@ -6,7 +6,7 @@ import { FileShare } from '../Assets/SocialMedia/fileShare';
 // import {FormControl, FormGroup} from 'react-bootstrap';
 
 
- class ProjectDisplay extends Component {
+class ProjectDisplay extends Component {
 //     constructor(props) {
 //         super(props);
 //         this.state = {
@@ -26,8 +26,10 @@ import { FileShare } from '../Assets/SocialMedia/fileShare';
             
                 <h1>{this.props.pickedProject.projectName}</h1>
                 <h2>{this.props.pickedProject.created}</h2>
-                <h3>{this.props.pickedProject.github}</h3>
-                <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
+                <div style={{display: 'flex', flexDirection:'column'}}>
+                    <a target='_blank' href={this.props.pickedProject.github}><img className='logosize imagesmadeformediabuttons'src={require('../Assets/SocialMedia/githubLogo.png')}/></a>
+                    <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
+                </div>
                 <FileShare />
                 <p>{this.props.pickedProject.description}</p>
 
@@ -57,11 +59,11 @@ import { FileShare } from '../Assets/SocialMedia/fileShare';
 
 const mapStateToProps = (state) => {
     return {
-      pickedProject: state.pickedProject
+        pickedProject: state.pickedProject
     }
-  }
-  
-  export default connect(mapStateToProps, { pickProject })(ProjectDisplay);
+}
+
+export default connect(mapStateToProps, { pickProject })(ProjectDisplay);
 
 
 
