@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { pickProject } from '../Actions/project.actions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { FileShare } from '../Assets/SocialMedia/fileShare';
 
 // import {FormControl, FormGroup} from 'react-bootstrap';
 
@@ -21,7 +22,16 @@ import {connect} from 'react-redux';
     
     render() {
         return(
-            <div>
+            <div className="boxmodel">
+            
+                <h1>{this.props.pickedProject.projectName}</h1>
+                <h3>{this.props.pickedProject.github}</h3>
+                <img src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
+                <FileShare />
+                <p>{this.props.pickedProject.description}</p>
+
+
+                
             {/* <figure className="grid-figure">
 				<div>
                 	<img src={this.state.image} style={{height:500, width:500}}/>
@@ -38,7 +48,7 @@ import {connect} from 'react-redux';
                 </FormGroup>
                 <button>Submit</button>
             </figure> */}
-
+            
             </div>
         );
     }

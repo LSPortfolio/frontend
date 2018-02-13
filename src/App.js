@@ -13,13 +13,13 @@ import { SubmitProject } from './Components';
 import { SignIn } from './Components/signin';
 import { SignUp } from './Components/signup';
 import Projects from './Components/Projects';
+import ProjectDisplay from './Components/projectDisplay';
 import { alertActions } from './Actions';
 import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 import Contributors from './Components/Contributors';
 
 import './App.css';
-import ProjectDisplay from './Components/projectDisplay';
 
 class App extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class App extends Component {
 {/* make home page private route after done */}
           <Route path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
-          <Route path="/project/single${id}" component={ProjectDisplay} />
+          <Route path='/project/single:id' component={ ProjectDisplay } />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
           <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />

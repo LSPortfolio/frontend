@@ -6,6 +6,7 @@ import chat from '../Assets/chat.svg'
 import {getProjects} from '../Actions/project.actions';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class Projects extends Component {
   // constructor(props) {
@@ -74,8 +75,9 @@ class Projects extends Component {
         <img alt="" className="project_img" src="https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/3293/s200/lambda400full.png" />
         <h4><Link to={`/project/single${project._id}`}>{project.projectName}</Link></h4>
         <div className="icons">
-          <img alt="like" className="project_icn" src={heart} />
-          <img alt="comment" className="project_icn" src={chat} />
+          {/* <img alt="like" className="project_icn" src={heart} />
+          <img alt="comment" className="project_icn" src={chat} /> */}
+          
         </div>
         {/* <h4>{project.contributors}</h4> */}
       </div>

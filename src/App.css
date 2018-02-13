@@ -23,6 +23,16 @@
   align-content: center;
 }
 
+.boxmodel {
+  text-align: center;
+  height: 800px;
+  width: 750px;
+  border: 5px solid #1e90ff;
+  padding: 15px;
+  margin: auto;
+  margin-top: 2cm;
+}
+
 .homePage {
   text-align: center;
 }
@@ -259,6 +269,7 @@ position: relative;
 }
 
 .logoholder {
+  padding-left: 6cm;
   display: flex;
   flex-direction: space-around;
 }

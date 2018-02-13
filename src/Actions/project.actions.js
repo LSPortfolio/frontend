@@ -13,8 +13,8 @@ export const PICK_PROJECT = 'PICK_PROJECTS';
     });
 };
 
-export const pickProject = (id) => {
-    const promise = axios.get('https://rolandbackend.herokuapp.com/project/single${id}');
+export const pickProject = (_id) => {
+    const promise = axios.get(`https://rolandbackend.herokuapp.com/project/single${_id}`);
     return({
         type: PICK_PROJECT,
         payload: promise
