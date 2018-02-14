@@ -8,49 +8,40 @@ import { Script } from 'vm';
 
 
 class ProjectDisplay extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            // image: 'https://odis.homeaway.com/odis/listing/65d6eedc-8953-4575-8746-2a13e6d205e2.c10.jpg',
-            // contributor: 'Eric',
-        
-            months: [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December"
-            ]
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         // image: 'https://odis.homeaway.com/odis/listing/65d6eedc-8953-4575-8746-2a13e6d205e2.c10.jpg',
+    //         // contributor: 'Eric',
+    //     };
+    // }
 
     componentDidMount() {
         this.props.pickProject(this.props.match.params.id);
     }
-
-    // showMonth() {
-        
-    //     let newDate = this.props.pickedProject.created;
-    //     let other = Date.parse(newDate);
-    //     // newDate.getMonth();
-    //     other.toLocaleString();
-    //     other.getMonth();
-    //     return other;
-    // }
     
     render() {
+        const formatDate = date => {
+        const months = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ]
+
+        const day = date.getDate()
+        const month = date.getMonth()
+        const year = date.getFullYear()
+
+        return `${months[month]} ${day}, ${year}`;
+        }
+
+
         return(
             <div className="boxmodel">
                 {/*<h1>{Date.now().prototype.getMonth()}</h1>*/}
-                <h1>{this.props.pickedProject.projectName}</h1>
-                <h2>{this.props.pickedProject.created}</h2>
+                <h1 style={{borderStyle: 'solid', borderTopStyle: 'hidden', borderRadius: 5}}>{this.props.pickedProject.projectName}</h1>
+                <h4>{formatDate(new Date(this.props.pickedProject.created))}</h4>
                 {/*<h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>*/}
 
                 
