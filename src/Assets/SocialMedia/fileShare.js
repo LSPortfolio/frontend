@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { FormGroup, FormControl, ButtonToolbar, Button } from 'react-bootstrap';
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import Modal from 'react-modal';
 
 const linkedinLogo = require('../SocialMedia/linkedinLogo.png');
@@ -88,19 +88,19 @@ export class FileShare extends Component {
                 </Modal>
                 {/*LinkedIn*/}
                 <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}&title=${joinWords(this.state.title)}&summary=${joinWords(this.state.summary)}&source=${joinWords(this.state.source)}`} target="_blank">
-                    <img className='logosize imagesmadeformediabuttons' src={linkedinLogo} />
+                    <img alt='LinkedIn' className='logosize imagesmadeformediabuttons' src={linkedinLogo} />
                 </a>
                 {/*Facebook*/}
                 <a href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank">
-                    <img className='logosize imagesmadeformediabuttons' src={facebookLogo} />
+                    <img alt='Facebook' className='logosize imagesmadeformediabuttons' src={facebookLogo} />
                 </a>
                 {/*Twitter*/}
                 <a className="twitter-share-button" href={`https://twitter.com/intent/tweet?url=${window.location.href}&via=LambdaSchool&text=${joinWords(this.state.text)}&hashtags=LambdaSchool`} target="_blank">
-                    <img className='logosize imagesmadeformediabuttons' src={twitterLogo} />
+                    <img alt='Twitter' className='logosize imagesmadeformediabuttons' src={twitterLogo} />
                 </a>
                 {/*Email*/}
                 <a onClick={() => this.setState({ emailToggleVisible: !this.state.emailToggleVisible })}>
-                    <img className='logosize imagesmadeformediabuttons' src={emailLogo}  target="_blank"/>
+                    <img alt='email' className='logosize imagesmadeformediabuttons' src={emailLogo}  target="_blank"/>
                 </a>
 
                 {/*
