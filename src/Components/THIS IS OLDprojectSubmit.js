@@ -29,7 +29,6 @@ export class SubmitProject extends Component {
       githubUrl: '',
       id: 0,
       //lambdaClass: '',
-      projectName: '',
       studentName: '',
       tag: '',
       tags: [],
@@ -95,7 +94,7 @@ export class SubmitProject extends Component {
 
     axios.all(uploaded).then(() => {
       //——— Once the files have been uploaded to Cloudinary,
-     //do something in the backend with the URL's ——— 
+      //do something in the backend with the URL's ——— 
       this.setState(prev => ({ fileUrls: [...prev.fileUrls, ...urls]}),
         () => { console.log("success") });
     });

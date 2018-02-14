@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-export const CommentList = (props) => {
-    <div className="commentList">
+// export const CommentList = (props) => {
+//     <div className="commentList">
         
-    </div>
-}
+//     </div>
+// }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import { FormGroup, FormControl } from 'react-bootstrap';
 import data from './something';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
@@ -32,37 +31,15 @@ class ContentFinal extends Component {
         helperText="Review if you'd like!"
       />
       <div className="col-sm-6 col-sm-offset-3">
-      <div>
-      {
-        data.projectName
-      }
-      </div>
-      <div>
-        <img className="media" src={data.media}/>
-      </div>
-      <div>
-        <img className="media" src={data.cover}/>
-      </div>
-      <div>
-        {
-          data.description
-        }
-      </div>
-      <div>
-        {
-          data.tags
-        }
-      </div>
-      <div>
-        {
-          data.createdBy
-        }
-      </div>
-      <div>
-        {
-          data.github
-        }
-      </div>
+      <div className="boxmodel">
+            
+                <h1>{data.projectName}</h1>
+                <img className="media" src={data.cover}/>
+                <div>
+                    <a target='_blank' href={data.github}><img className='logosize imagesmadeformediabuttons'src={'https://packagecontrol.io/readmes/img/a59a44b1a383ad42e195fa34f0ad2756f46c77a2.png'}/></a>
+                </div>
+                <p>{data.description}</p>
+            </div>
         <button onClick={this.handleSubmit} className="btn btn-primary pull-right icon-last" type="submit">
           Submit Project
           <i className="fa fa-plus"></i>

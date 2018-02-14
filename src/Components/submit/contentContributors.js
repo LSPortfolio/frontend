@@ -25,6 +25,9 @@ class Contributors extends Component {
   }
 
   handleSubmit() {
+    if (this.state.contributor.length === 0|| this.state.role.length === 0 || this.state.responsibility.length === 0) {
+      return
+    }
     const contributors = this.state.contributors;
     contributors.push({ user: this.state.contributor, role: this.state.role, responsibility: this.state.responsibility });
     this.setState({contributors});
@@ -58,10 +61,6 @@ class Contributors extends Component {
             </div>
           </FormGroup>
             <div className="clearfix">
-              <Link to="/submit" className="btn btn-default icon-first">
-                <i className="fa fa-chevron-left"></i>
-                Back
-              </Link>
               <button onClick={this.handleSubmit} className="btn btn-primary pull-right icon-last" type="submit">
                 Add Contributor
                 <i className="fa fa-plus"></i>
@@ -71,7 +70,7 @@ class Contributors extends Component {
         <div className="clearfix"></div>
         <hr />
         <div className="col-sm-10 col-sm-offset-1">
-          <h4>Current Contributors</h4>
+          {this.state.contributors.length >= 1 ? <h4>Current Contributors</h4> : null}
           <div className="row">
             {/*<UsersPushed list={this.state.contributors}/>*/}
             {this.state.contributors.map((contributor, i) => {
