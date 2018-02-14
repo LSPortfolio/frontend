@@ -62,7 +62,7 @@ class App extends Component {
             <Route path='/signUp' component={ SignUp } />
             <Route path='/signIn' component={ SignIn } />
             <Route path='/forgotPassword' component={ ForgotPassword } />
-            <Route path='/passwordToken' component={ PasswordToken } />
+            <Route path='/resetPassword' component={ PasswordToken } />
             {/*<Route path='/share' component={ FileShare } />*/}
             </div>
     {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}
