@@ -18,6 +18,7 @@ import { alertActions } from './Actions';
 // import { FileShare } from '../src/Assets/SocialMedia/fileShare';
 import { history } from './Helpers/history';
 import Contributors from './Components/Contributors';
+import Settings from '../src/Components/settings';
 
 //New Submit!!//
 import ContentHome from './Components/submit/contentHome';
@@ -26,7 +27,6 @@ import addContributors from './Components/submit/contentContributors';
 import ContentMedia from './Components/submit/contentMedia';
 import ContentCover from './Components/submit/contentCover';
 import ContentFinal from './Components/submit/contentSubmit';
-import Settings from './Components/settings';
 import './Components/submit/submit.css';
 
 //comment actions and reducers//
@@ -77,6 +77,7 @@ class App extends Component {
               <PrivateRoute path='/submit/content/media' component={ ContentMedia } />
               <PrivateRoute path='/submit/content/cover' component={ ContentCover } />
               <PrivateRoute path='/submit/content/final' component={ ContentFinal } />
+              <PrivateRoute path='/settings' component={ Settings } />
               {/*================================================*/}
 
             <Route path='/Contributors' component={ Contributors } />
