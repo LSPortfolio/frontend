@@ -5,17 +5,17 @@ export const AUTHOR_CHANGE = 'AUTHOR_CHANGE';
 export const TEXT_CHANGE = 'TEXT_CHANGE';
 
 
-const addComment = (comment={author:'', text: ''}) => {
+export const addComment = (comment={author:'', text: ''}) => {
     type: ADD_COMMENT
     comment
 }
 
-const authorChange = (author = '') => {
+export const authorChange = (author = '') => {
     type: AUTHOR_CHANGE
     author
 }
 
-const textChange = (text = '') => {
+export const textChange = (text = '') => {
     type: TEXT_CHANGE
     text
 }

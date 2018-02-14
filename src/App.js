@@ -27,6 +27,11 @@ import ContentMedia from './Components/submit/contentMedia';
 import ContentCover from './Components/submit/contentCover';
 import ContentFinal from './Components/submit/contentSubmit';
 import './Components/submit/submit.css';
+
+//comment actions and reducers//
+import { commentsReducer } from './Reducers/comments.reducer';
+import { addComment }  from './Actions/comments.actions';
+
 //=========================//
 
 import './App.css';
@@ -39,6 +44,7 @@ class App extends Component {
     history.listen((location, action) => {
         dispatch(alertActions.clear());
     });
+    // commentsReducer.map(comment => dispatch( addComment(comment)));
   }
   render() {
     const { alert } = this.props;
