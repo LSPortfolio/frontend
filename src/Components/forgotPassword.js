@@ -21,7 +21,7 @@ export class ForgotPassword extends Component {
     e.preventDefault()
     console.log(this.state.email);
     axios
-      .put(`http://localhost:3030/user/forgotPassword`, { email: this.state.email })
+      .put(`https://lambdashowcase.herokuapp.com/user/forgotPassword`, { email: this.state.email })
       .then(res => {
         alert('A code was sent to your email address!');
       })
