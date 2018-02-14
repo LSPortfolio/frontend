@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header';
 import { FormGroup, FormControl } from 'react-bootstrap'
 import data from './something';
-import { Link } from 'react-router-dom'
-
 
 class Contributors extends Component {
   constructor(props) {

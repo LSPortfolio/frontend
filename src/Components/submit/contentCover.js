@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FormGroup, FormControl } from 'react-bootstrap';
 import data from './something';
 import Header from './Header';
 import axios from 'axios';
@@ -28,7 +26,6 @@ class ContentCover extends Component {
         files: [...prev.files, ...files]
       }))
     }
-    console.log(this.state.files);
   }
 
   handleSubmit() {

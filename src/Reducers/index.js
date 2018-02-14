@@ -6,6 +6,7 @@ import { registration } from './registration.reducer';
 import { alert } from './alert.reducer';
 import { projects } from './Project.reducer';
 import { pickedProject } from './Project.reducer';
+import { commentsReducer } from './comments.reducer';
 
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     // users,
     alert,
     projects,
-	pickedProject
+    pickedProject,
+    commentsReducer
 });
 
 export default rootReducer;

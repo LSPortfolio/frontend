@@ -28,6 +28,11 @@ import ContentCover from './Components/submit/contentCover';
 import ContentFinal from './Components/submit/contentSubmit';
 import Settings from './Components/settings';
 import './Components/submit/submit.css';
+
+//comment actions and reducers//
+import { commentsReducer } from './Reducers/comments.reducer';
+import { addComment }  from './Actions/comments.actions';
+
 //=========================//
 
 import './App.css';
@@ -41,6 +46,7 @@ class App extends Component {
     history.listen((location, action) => {
         dispatch(alertActions.clear());
     });
+    // commentsReducer.map(comment => dispatch( addComment(comment)));
   }
   render() {
     const { alert } = this.props;
@@ -58,8 +64,7 @@ class App extends Component {
             <Route path='/signUp' component={ SignUp } />
             <Route path='/signIn' component={ SignIn } />
             <Route path='/forgotPassword' component={ ForgotPassword } />
-            <Route path='/passwordToken' component={ PasswordToken } />
-            <Route path='/settings' component={Settings}/>
+            <Route path='/resetPassword' component={ PasswordToken } />
             {/*<Route path='/share' component={ FileShare } />*/}
             </div>
     {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}

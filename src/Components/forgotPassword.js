@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { FormControl, FormGroup } from 'react-bootstrap'
 import axios from 'axios'
 
-const port = process.env.PORT || 5280
-
 export class ForgotPassword extends Component {
   constructor(props) {
     super(props)
@@ -21,12 +19,9 @@ export class ForgotPassword extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const data = {
-      email: this.state.email,
-    }
-
+    console.log(this.state.email);
     axios
-      .post(`http://localhost:${port}/user/forgotPassword`, data)
+      .put(`https://lambdashowcase.herokuapp.com/user/forgotPassword`, { email: this.state.email })
       .then(res => {
         alert('A code was sent to your email address!');
       })
@@ -39,7 +34,6 @@ export class ForgotPassword extends Component {
     return (
       <div className="container">
         <form>
-          <h2>THIS IS A STUB!! IT WORKS, BUT EMAIL FUNCTIONALITY IS NOT APPLIED YET.. A WORK IN PROGRESS </h2>
           <h2>Forgot Password</h2>
           <br />
           <FormGroup>

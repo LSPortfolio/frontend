@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { FormControl, FormGroup } from 'react-bootstrap'
 import axios from 'axios'
 
-const port = process.env.PORT || 5280
-
 export class PasswordToken extends Component {
   constructor() {
     super()
@@ -17,7 +15,9 @@ export class PasswordToken extends Component {
 
   componentDidMount() {
     const url = window.location.href;
-    url.replace()
+    console.log(url);
+    const token = url.match(/([A-Z])\d\w.+/g)
+    this.setState({ token: token.join('') });
   }
 
   handleChange(e) {
@@ -32,7 +32,7 @@ export class PasswordToken extends Component {
       password: this.state.password
     }
     axios
-      .put(`http://localhost:${port}/user/resetPassword`, data)
+      .put(`https://lambda-showcase-backend.herokuapp.com/user/resetPassword?token=${data.token}`, data)
       .then(res => {
         alert('Password reset Successful!')
       })
@@ -45,16 +45,8 @@ export class PasswordToken extends Component {
     return (
       <div>
         <form>
-          <label>Please provide the given code:</label>
+          <label>Input new password</label>
           <FormGroup>
-            <FormControl 
-              className="input_form"
-              placeholder="Code"
-              onChange={this.handleChange}
-              value={this.state.token}
-              type="text"
-              name="token"
-            />
             <FormControl 
               className="input_form"
               placeholder="New Password"
