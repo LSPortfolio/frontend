@@ -12,6 +12,10 @@ export default class Settings extends Component {
         };
     }
 
+    // handleSubmit() {
+
+    // }
+
     render() {
         return (
             <div style={{textAlign: 'center', display: 'flex', flexDirection: 'column'}}>
