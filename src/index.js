@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 
 // Components & CSS
 import { App } from './App';
+import Contributors from './Components/submit/contentContributors'
 import reducer from './Reducers';
 import './index.css';
 
