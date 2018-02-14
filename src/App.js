@@ -26,10 +26,12 @@ import addContributors from './Components/submit/contentContributors';
 import ContentMedia from './Components/submit/contentMedia';
 import ContentCover from './Components/submit/contentCover';
 import ContentFinal from './Components/submit/contentSubmit';
+import Settings from './Components/settings';
 import './Components/submit/submit.css';
 //=========================//
 
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -57,6 +59,7 @@ class App extends Component {
             <Route path='/signIn' component={ SignIn } />
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/passwordToken' component={ PasswordToken } />
+            <Route path='/settings' component={Settings}/>
             {/*<Route path='/share' component={ FileShare } />*/}
             </div>
     {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}

@@ -113,7 +113,7 @@ class SignUp extends Component {
             <div className="buttons_layout" id="signup_btns">
               <label>Account Type:</label>
               <select name="role" onChange={this.handleChange}>
-                <option value="1">User</option>
+                <option value="1">General</option>
                 <option value="2">Student</option>
               </select>
             </div>

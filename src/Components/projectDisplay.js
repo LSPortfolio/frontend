@@ -8,16 +8,20 @@ import { Script } from 'vm';
 
 
 class ProjectDisplay extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         // image: 'https://odis.homeaway.com/odis/listing/65d6eedc-8953-4575-8746-2a13e6d205e2.c10.jpg',
-    //         // contributor: 'Eric',
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            liked: false
+        };
+        this.handleLike = this.handleLike.bind(this);
+    }
 
     componentDidMount() {
         this.props.pickProject(this.props.match.params.id);
+    }
+
+    handleLike() {
+        this.setState({ liked: !this.state.liked });
     }
     
     render() {
@@ -27,11 +31,11 @@ class ProjectDisplay extends Component {
             "April", "May", "June", "July",
             "August", "September", "October",
             "November", "December"
-        ]
+        ];
 
-        const day = date.getDate()
-        const month = date.getMonth()
-        const year = date.getFullYear()
+        const day = date.getDate();
+        const month = date.getMonth();
+        const year = date.getFullYear();
 
         return `${months[month]} ${day}, ${year}`;
         }
@@ -40,8 +44,8 @@ class ProjectDisplay extends Component {
         return(
             <div className="boxmodel">
                 {/*<h1>{Date.now().prototype.getMonth()}</h1>*/}
-                <h1 style={{borderStyle: 'solid', borderTopStyle: 'hidden', borderRadius: 5}}>{this.props.pickedProject.projectName}</h1>
-                <h4>{formatDate(new Date(this.props.pickedProject.created))}</h4>
+                <h1 style={{borderStyle: 'solid', borderTopStyle: 'hidden', borderRadius: 5, marginLeft: 40}}>{this.props.pickedProject.projectName}<span id='likebutton' onClick={ this.handleLike } style={{color: `${this.state.liked===true ? 'red' : 'white'}`, marginTop: 8, fontSize: 30, float: 'right', marginRight: 20}} className="glyphicon glyphicon-heart"></span></h1>
+                <h5>{formatDate(new Date(this.props.pickedProject.created))}</h5>
                 {/*<h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>*/}
 
                 
