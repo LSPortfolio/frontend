@@ -15,9 +15,8 @@ export class PasswordToken extends Component {
 
   componentDidMount() {
     const url = window.location.href;
-    console.log(url);
-    const token = url.match(/([A-Z])\d\w.+/g)
-    this.setState({ token: token.join('') });
+    const urlToken = url.match(/([A-Z])\d\w.+/g).join('');
+    this.setState({ token: urlToken });
   }
 
   handleChange(e) {
@@ -27,17 +26,15 @@ export class PasswordToken extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const data = {
-      token: this.state.token,
-      password: this.state.password
-    }
+    console.log(this.state.token);
     axios
-      .put(`https://lambda-showcase-backend.herokuapp.com/user/resetPassword?token=${data.token}`, data)
+      .put(`https://lambda-showcase-backend.herokuapp.com/user/resetPassword?token=${this.state.token}`, {password: this.state.password})
       .then(res => {
-        alert('Password reset Successful!')
+        alert(res.response.data);
       })
-      .catch(err => {
-        alert('Password reset unsuccessful!')
+      .catch(res => {
+        console.log(res);
+        alert(JSON.stringify(res.response.data));
       })
   }
 
