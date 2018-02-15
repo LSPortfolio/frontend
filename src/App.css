@@ -32,8 +32,8 @@
 
 .boxmodel {
   text-align: center;
-  height: 800px;
-  width: 750px;
+  height: 900px;
+  width: 900px;
   border: 5px solid #1e90ff;
   padding: 15px;
   margin: auto;
@@ -120,6 +120,11 @@ position: relative;
   background-color: #6d6d6d;
   border-color: #6d6d6d;
   /* transform: scale(1.1, 1.1); */
+}
+
+.display-media {
+  width: 500;
+  height: 500;
 }
 
 .navigation a {

@@ -54,7 +54,7 @@ class ProjectDisplay extends Component {
 
                 
                     
-                <img alt='Project Sample' src={this.props.pickedProject.media} />
+                <img className="display-media" alt='Project Sample' src={this.props.pickedProject.media || this.props.pickedProject.cover}  style={{width: 500, height: 500}}/>
                 <div style={{marginTop: '50px', display: 'flex', flexDirection:'row', borderTopStyle: 'solid', borderBottomStyle: 'solid', borderRadius: 10}}>
                     <FileShare />
                     <a target='_blank' href={this.props.pickedProject.github}><img alt='GitHub' className='logosize imagesmadeformediabuttons'src={require('../Assets/SocialMedia/githubLogo.png')}/></a>
