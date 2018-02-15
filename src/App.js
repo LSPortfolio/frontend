@@ -52,36 +52,36 @@ class App extends Component {
     const { alert } = this.props;
     return (
       <Router history={ history }>
-        <div className="App">
+        <div>
           <NavBar history={ history } />
           <PrivateRoute exact path="/" component={ HomePage } />
-{/* make home page private route after done */}
           <PrivateRoute path='/homePage' component={ HomePage } />
           <Route path='/Projects' component={ Projects } />
           <Route path='/project/single:id' component={ ProjectDisplay } />
           {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
-          <div className="col-sm-4 col-sm-offset-4" style={{paddingTop: "50px"}}>
+          <div className="col-sm-12 d-flex justify-content-center" style={{paddingTop: "50px"}}>
             <Route path='/signUp' component={ SignUp } />
             <Route path='/signIn' component={ SignIn } />
             <Route path='/forgotPassword' component={ ForgotPassword } />
             <Route path='/resetPassword' component={ PasswordToken } />
+          </div>
             {/*<Route path='/share' component={ FileShare } />*/}
-            </div>
-    {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}
-              {/*This is the new submit*/}
-              <div style={{paddingTop: "50px"}}>
+            {/*This is the old submit<Route path='/submit' component={ SubmitProject } />*/}
+            {/*This is the new submit*/}
+            <div className="col-sm-12">
               <PrivateRoute path="/submit" component={ ContentHome } />
+              <div style={{paddingTop: "30px"}}>
+                <PrivateRoute path='/submit/content/desc' component={ ContentDesc } />
+                <PrivateRoute path='/submit/content/contributors' component={ addContributors } />
+                <PrivateRoute path='/submit/content/media' component={ ContentMedia } />
+                <PrivateRoute path='/submit/content/cover' component={ ContentCover } />
+                <PrivateRoute path='/submit/content/final' component={ ContentFinal } />
+                <PrivateRoute path='/settings' component={ Settings } />
               </div>
-              <PrivateRoute path='/submit/content/desc' component={ ContentDesc } />
-              <PrivateRoute path='/submit/content/contributors' component={ addContributors } />
-              <PrivateRoute path='/submit/content/media' component={ ContentMedia } />
-              <PrivateRoute path='/submit/content/cover' component={ ContentCover } />
-              <PrivateRoute path='/submit/content/final' component={ ContentFinal } />
-              <PrivateRoute path='/settings' component={ Settings } />
               {/*================================================*/}
-
+            </div>
             <Route path='/Contributors' component={ Contributors } />
-        </div>
+          </div>
       </Router>
     );
   }

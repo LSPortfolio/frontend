@@ -36,7 +36,7 @@ class NavBar extends Component {
   render() {
     const { pathname } = this.props.history.location
     return (
-      <div className="container-row" id="header">
+      <div className="container-fuid" id="header">
         <header className="header">
           <div className="navigation">
             <div className="brand">

@@ -68,3 +68,39 @@
   width: 75%; /* Width of new image */
   height: 50%; /* Height of new image */
 }
+
+.button {
+  display: block;
+  width: 200px;
+  height: 200px;
+  line-height: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #123;
+}
+
+.container:hover .overlay {
+  opacity: 0.5;
+}
+
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}

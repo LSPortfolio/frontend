@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from './Header';
 import './submit.css'
 
 const Content = () => {
   return (
     <div className="text-center">
-        <Header
-          headerText="Project Content"
-          helperText="Click on the sections below and finish them all before moving on to adding a cover." />
-        <div className="row col-sm-10 col-sm-offset-2" >
+        <h4> Project Content </h4>
+        <p className="text-muted">Click on the sections below and finish them all before moving on to adding a cover.</p>
           <div>
-          <div className="chButtons">
+          <div className="row chButtons d-flex justify-content-center">
             <Link className="col-sm-2 text-center" to="/submit/content/desc">
               <strong>Description <br />& Tags</strong>
             </Link>
@@ -41,7 +38,6 @@ const Content = () => {
             </div>
               </div>*/}
         </div>
-      </div>
     </div>
   )
 }

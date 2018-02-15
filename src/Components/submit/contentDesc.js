@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap'
-import Header from './Header';
 import data from './something';
 
 class ContentDesc extends Component {
@@ -12,49 +11,65 @@ class ContentDesc extends Component {
       tags: '',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ projectName: data.projectName, description: data.description, tags: data.tag })
   }
 
   handleChange(e) {
     e.preventDefault();
     const { name, value } = e.target;
     this.setState({ [name]: value });
-  }
-
-  handleSubmit() {
-    const tags = this.state.tags.split(',');
+    const tags = this.state.tags;
     data.projectName = this.state.projectName;
     data.description = this.state.description;
-    data.tags = tags;
-    console.log(data);
+    data.tag = tags;
+    data.tags = tags.split(',');
   }
+
+  /*handleSubmit() {
+  }*/
 
   render() {
     return (
-      <div className="row">
-        <Header
-          headerText="Description"
-          helperText="All fields below are required. You should add at least one tag."
-        />
-        <div className="col-sm-6 col-sm-offset-3">
-          <FormGroup>
-            <div className="form-group">
-              <FormControl type="text" name="projectName" onChange={this.handleChange} placeholder="Project Name" className="form-control" />
-            </div>
-            <div className="form-group">
-              <textarea className="form-control" rows="3" name="description" onChange={this.handleChange} placeholder="Type project description here..."></textarea>
-            </div>
-            <div className="form-group">
-              <input type="text" name="tags" placeholder="Tags, separate by commas" onChange={this.handleChange} className="form-control"/>
-            </div>
-          </FormGroup>
-            <div className="clearfix">
-              <button className="btn btn-primary icon-last pull-right" onClick={this.handleSubmit} type="submit">
-                Add
-              </button>
-            </div>
-        </div>
+      <div>
+      <div className="text-center">
+        <h4>Description</h4>
+        <p className="text-muted">All fields below are required. You should add at least one tag.</p>
       </div>
+        <div className="d-flex justify-content-center" style={{paddingTop: "25px"}}>
+          <form style={{width: "40%"}}>
+            <div className="form-group">
+              <input 
+                className="form-control" 
+                type="text" 
+                name="projectName" 
+                onChange={this.handleChange}
+                value={this.state.projectName}
+                placeholder="Project Name" />
+            </div>
+            <div className="form-group">
+              <textarea 
+                className="form-control" 
+                rows="3" name="description" 
+                onChange={this.handleChange}
+                value={this.state.description}
+                placeholder="Type project description here..."/>
+            </div>
+            <div className="form-group">
+              <input 
+                className="form-control"
+                type="text"
+                name="tags"
+                placeholder="Tags, separate by commas no spaces"
+                value={this.state.tags}
+                onChange={this.handleChange}/>
+            </div>
+          </form>
+        </div>
+    </div>
   )
 }
 }

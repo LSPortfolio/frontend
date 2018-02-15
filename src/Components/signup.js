@@ -61,7 +61,7 @@ class SignUp extends Component {
     const { user, submitted } = this.state;
 
     return (
-      <div className="container">
+      <div className="col-sm-4">
         <h2>Sign Up</h2>
         <form>
           <FormGroup>

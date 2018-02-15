@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import data from './something';
 import axios from 'axios'
 import './submit.css';
@@ -25,10 +24,8 @@ class ContentFinal extends Component {
   render() {
     return (
       <div className="row">
-      <Header
-        headerText="About ready to submit :D"
-        helperText="Review if you'd like!"
-      />
+      <h4> About ready to submit</h4>
+      <p className="text-muted">Review if you'd like!</p>
       <div className="col-sm-6 col-sm-offset-3">
       <div className="boxmodel">
             
