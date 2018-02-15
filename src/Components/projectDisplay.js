@@ -47,14 +47,9 @@ class ProjectDisplay extends Component {
         return(
             <div className="boxmodel">
                 {/*<h1>{Date.now().prototype.getMonth()}</h1>*/}
-<<<<<<< HEAD
-                <h1 style={{borderStyle: 'solid', borderTopStyle: 'hidden', borderRadius: 5}}>{this.props.pickedProject.projectName}</h1>
-                <h2>{this.props.pickedProject.media}</h2>
-                <h4>{formatDate(new Date(this.props.pickedProject.created))}</h4>
-=======
                 <h1 style={{borderStyle: 'solid', borderTopStyle: 'hidden', borderRadius: 5, marginLeft: 40}}>{this.props.pickedProject.projectName}<span id='likebutton' onClick={ this.handleLike } style={{color: `${this.state.liked===true ? 'red' : 'white'}`, marginTop: 8, fontSize: 30, float: 'right', marginRight: 20}} className="glyphicon glyphicon-heart"></span></h1>
+                <h2>{this.props.pickedProject.createdBy}</h2>
                 <h5>{formatDate(new Date(this.props.pickedProject.created))}</h5>
->>>>>>> 553337d11b10ec0a610c6a51968c0675135ae428
                 {/*<h2>{ISODate(this.props.pickedProject.created).toTimeString()}</h2>*/}
 
                 
