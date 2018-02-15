@@ -45,7 +45,7 @@ class NavBar extends Component {
             <div className="btn_container">
               {this.navSwitcher(pathname)}
               <Link to="/Projects" className="btn btn-light">STUDENT PROJECTS</Link>
-              <Link to="/Contributors" className="btn btn-light">CONTRIBUTORS</Link>
+              {/* <Link to="/Contributors" className="btn btn-light">CONTRIBUTORS</Link> */}
             </div>
           </div>
         </header>
