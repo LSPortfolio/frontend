@@ -41,7 +41,7 @@ export class FileShare extends Component {
             return newDescription;
         }
         return (
-            <div className='logoholder'>
+            <div className='logoholder' style={{margin: 0}}>
                 <Modal isOpen={this.state.emailToggleVisible}>
                     <h1>Send an Email:</h1>
                     <h6>*Separate multiple recipients/CC/BCC with a semicolon</h6>
