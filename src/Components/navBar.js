@@ -15,25 +15,17 @@ class NavBar extends Component {
     const { logout } = this.props
     return localStorage.getItem('user') ? (
       [
-        <Button key={1} href="/signIn" className="navbuttons" onClick={logout}>
+        <Link key={1} to="/signIn" className="btn btn-light" onClick={logout}>
           SIGN OUT
-        </Button>,
-        <Button key={2} href="/Submit" className="navbuttons">
+        </Link>,
+        <Link key={2} to="/Submit" className="btn btn-light">
           SUBMIT
-        </Button>,
-        <Button href='/settings'>
+        </Link>,
+        <Link key={3} to='/settings' className="btn btn-light">
           SETTINGS
-        </Button>
+        </Link>
       ]
-    ) : pathname === '/signUp' ? (
-      <Button href="/signIn" className="navbuttons">
-        SIGN IN
-      </Button>
-    ) : (
-      <Button href="/signUp" className="navbuttons">
-        SIGN UP
-      </Button>
-    )
+    ) : pathname === '/signUp' ? (<Link to="/signIn" className="btn btn-light">SIGN IN</Link>) : (<Link to="/signUp" className="btn btn-light">SIGN UP</Link>)
   }
 
   render() {
@@ -52,8 +44,8 @@ class NavBar extends Component {
             </div>
             <div className="btn_container">
               {this.navSwitcher(pathname)}
-              <Button href="/Projects">STUDENT PROJECTS</Button>
-              <Button href='/Contributors'>CONTRIBUTORS</Button>
+              <Link to="/Projects" className="btn btn-light">STUDENT PROJECTS</Link>
+              <Link to="/Contributors" className="btn btn-light">CONTRIBUTORS</Link>
             </div>
           </div>
         </header>

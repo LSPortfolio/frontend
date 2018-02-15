@@ -18,6 +18,7 @@ class ContentMedia extends Component {
     this.fileUpload = this.fileUpload.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    
   }
 
   componentDidMount() {
@@ -61,11 +62,25 @@ class ContentMedia extends Component {
   handleRemove(file) {
     this.setState({ fileUrls: this.state.fileUrls.filter(data => data !== file )})
     data.media = data.media.filter(data => data !== file);
+    axios.post(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/<resource_type>/destroy`)
   }
  
+  delete() {
+    const formData = new FormData()
+    formData.append('api_key', CLOUDINARY_API_KEY)
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+    axios.post(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/destroy`, formData).
+    then(response => {
+      console.log(response);
+    })
+    .catch(response => {
+      console.log(response);
+    })
+  }
   render() {
     return (
       <div>
+        <button onClick={this.delete}>delete</button>
         <div className="text-center">
         <h4> Media </h4>
         <p className="text-muted">Upload pictures of your project and github repo.</p>
