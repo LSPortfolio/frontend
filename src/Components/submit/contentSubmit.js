@@ -29,7 +29,7 @@ class ContentFinal extends Component {
           <h4>Not finished</h4>
           <p className="text-muted">Finish all to review</p>
       </div>:
-      <div className="row">
+      <div className="text-center">
         <h4> About ready to submit</h4>
         <p className="text-muted">Review if you'd like!</p>
         <button onClick={this.handleSubmit} className="btn btn-primary pull-right icon-last" type="submit">

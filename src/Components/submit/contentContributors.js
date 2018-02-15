@@ -46,7 +46,7 @@ class Contributors extends Component {
       <div>
       <div className="text-center">
         <h4> Manage Contributors </h4>
-        <p className="text-muted">Use this page to add/manage the people who contributed to this project.</p>
+        <p className="text-muted">Use this page to add/manage the people who contributed to this project, this also includes you.</p>
       </div>
         <div className="d-flex justify-content-center" style={{paddingTop: "25px"}}>
           <form style={{width: "40%"}}>
@@ -56,7 +56,7 @@ class Contributors extends Component {
                 onChange={this.handleChange}
                 name="contributor"
                 className="form-control"
-                placeholder="Contributor's email"
+                placeholder="Contributor's Name"
               />
             </div>
             <div className="form-group">

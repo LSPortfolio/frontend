@@ -65,22 +65,9 @@ class ContentMedia extends Component {
     axios.post(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/<resource_type>/destroy`)
   }
  
-  delete() {
-    const formData = new FormData()
-    formData.append('api_key', CLOUDINARY_API_KEY)
-    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-    axios.post(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/destroy`, formData).
-    then(response => {
-      console.log(response);
-    })
-    .catch(response => {
-      console.log(response);
-    })
-  }
   render() {
     return (
       <div>
-        <button onClick={this.delete}>delete</button>
         <div className="text-center">
         <h4> Media </h4>
         <p className="text-muted">Upload pictures of your project and github repo.</p>
@@ -98,10 +85,14 @@ class ContentMedia extends Component {
             </div>
             <div className="form-group">
               <input
+                id="file-1"
                 type="file"
                 onChange={this.fileUpload}
-                style={{ marginBottom: 30 }}
+                style={{ width: "0.1px", height: "0.1px", overflow: "hidden", opacity: "0", zindex: "-1" }}
               />
+              <label htmlFor="file-1" className="btn btn-primary">
+                Select Photo
+              </label>
             </div>
           </form>
         </div>
@@ -130,6 +121,7 @@ class ContentMedia extends Component {
         </div>    
       </div>
     )
+    
   }
 }
 
