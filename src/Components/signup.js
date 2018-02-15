@@ -61,7 +61,7 @@ class SignUp extends Component {
     const { user, submitted } = this.state;
 
     return (
-      <div className="container">
+      <div className="col-sm-4">
         <h2>Sign Up</h2>
         <form>
           <FormGroup>
@@ -113,7 +113,7 @@ class SignUp extends Component {
             <div className="buttons_layout" id="signup_btns">
               <label>Account Type:</label>
               <select name="role" onChange={this.handleChange}>
-                <option value="1">User</option>
+                <option value="1">General</option>
                 <option value="2">Student</option>
               </select>
             </div>

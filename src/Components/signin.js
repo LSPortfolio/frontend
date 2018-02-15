@@ -37,7 +37,7 @@ class SignIn extends Component {
     const { loggingIn } = this.props
     const { username, password, submitted } = this.state;
     return (
-      <div className="container" id="signin_container">
+      <div className="col-sm-4">
         <h2>Sign In</h2>
         <form>
           <FormGroup>

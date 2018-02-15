@@ -4,4 +4,4 @@ export * from './navBar';
 export * from './signin';
 export * from './signup';
 export * from './forgotPassword';
-export * from './passwordToken';
+export * from './resetPassword';

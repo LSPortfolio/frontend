@@ -22,9 +22,7 @@
  }
 /* NavBar Components */
 #header {
-  width: 100vw;
-  height: 120px;
-  color: #1e90ff;
+  height: 60px;
   background-color: #282828;
   display: flex;
   flex-direction: center;
@@ -116,13 +114,17 @@ position: relative;
   transition: all .2s cubic-bezier(0, 1.26, .8, 1.28);
 }
 
+<<<<<<< HEAD
+=======
 .btn:hover {
-  font-weight: 500;
+  /* font-weight: 500; */
+  color: black;
   background-color: #6d6d6d;
   border-color: #6d6d6d;
-  transform: scale(1.1, 1.1);
+  /* transform: scale(1.1, 1.1); */
 }
 
+>>>>>>> eee3aaa5f8dae29f7fb014633c5bd052f279a455
 .navigation a {
   color: rgb(255,255,255);
   align-self: center;
@@ -165,6 +167,7 @@ position: relative;
 #signin_container {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .buttons_layout {
@@ -334,6 +337,10 @@ position: relative;
 
 #likebutton {
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  cursor: pointer;
+}
+
+.settingsbutton :hover {
   cursor: pointer;
 }
 

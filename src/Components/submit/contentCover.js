@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { FormGroup, FormControl } from 'react-bootstrap';
 import data from './something';
-import Header from './Header';
 import axios from 'axios';
 
 const CLOUDINARY_UPLOAD_PRESET = 'gisk1vl6'
@@ -28,7 +25,6 @@ class ContentCover extends Component {
         files: [...prev.files, ...files]
       }))
     }
-    console.log(this.state.files);
   }
 
   handleSubmit() {
@@ -57,26 +53,25 @@ class ContentCover extends Component {
  
   render() {
     return (
-        <div className="row">
-          <Header
-            headerText="Cover"
-            helperText="Upload a cover thumbnail for your project."
-          />
-          <div className="col-sm-6 col-sm-offset-3">
+      <div>
+        <div className="text-center">
+        <h4> Cover </h4>
+        <p className="text-muted">Upload a cover art for your project.</p>
+        </div>
+        <div className="d-flex justify-content-center" style={{paddingTop: "25px"}}>
+          <form>
+            <div className="form-group">
               <input
                 type="file"
                 onChange={this.fileUpload}
                 style={{ marginBottom: 30 }}
-                multiple
               />
-              <button onClick={this.handleSubmit} className="btn btn-primary pull-right icon-last" type="submit">
-                Add Media
-                <i className="fa fa-plus"></i>
-              </button>
-          </div>
+            </div>
+          </form>
         </div>
-      )
-    }
+      </div>
+    )
+  }
 }
 
 export default ContentCover;
