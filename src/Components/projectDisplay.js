@@ -54,7 +54,7 @@ class ProjectDisplay extends Component {
 
                 
                     
-                <img alt='Project Sample' src="https://cdn.bestdegreeprograms.org/wp-content/uploads/2015/11/Computer-programmer-11.2015.jpg" />
+                <img alt='Project Sample' src={this.props.pickedProject.media} />
                 <div style={{marginTop: '50px', display: 'flex', flexDirection:'row', borderTopStyle: 'solid', borderBottomStyle: 'solid', borderRadius: 10}}>
                     <FileShare />
                     <a target='_blank' href={this.props.pickedProject.github}><img alt='GitHub' className='logosize imagesmadeformediabuttons'src={require('../Assets/SocialMedia/githubLogo.png')}/></a>
