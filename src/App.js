@@ -46,7 +46,7 @@ class App extends Component {
     history.listen((location, action) => {
         dispatch(alertActions.clear());
     });
-    // commentsReducer.map(comment => dispatch( addComment(comment)));
+    
   }
   render() {
     const { alert } = this.props;

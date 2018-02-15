@@ -9,6 +9,8 @@ import { pickedProject } from './Project.reducer';
 import { commentsReducer } from './comments.reducer';
 
 
+
+
 const rootReducer = combineReducers({
     authentication,
     registration,
