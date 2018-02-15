@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, Dropdown } from 'react-bootstrap';
+import '../App.css';
 
 export default class Settings extends Component {
     constructor(props) {
@@ -10,11 +11,22 @@ export default class Settings extends Component {
             passwordConfirm: '',
             graduated: false
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleSubmit() {
-
-    // }
+    handleSubmit() {
+        if (!this.state.email) {
+            return alert('You must include an email!');
+        } else if (!this.state.password) {
+            return alert('You must include a password!');
+        } else if (this.state.password.length < 8) {
+            return alert('Your password is too short!');
+        }
+        let email = this.state.email;
+        let password = this.state.password;
+        let graduated = this.state.graduated;
+        console.log(email, password, graduated);
+    }
 
     render() {
         return (
@@ -43,7 +55,7 @@ export default class Settings extends Component {
                             <option value='student'>Student</option>
                             <option value='alumni'>Alumni - Only select if you have graduated</option>
                         </select>
-                        <Button style={{color: 'white'}}>Submit</Button>
+                        <Button className='settingsbutton' style={{color: 'white'}} onClick={this.handleSubmit}>Submit</Button>
                     </FormGroup>
                 </div>
             </div>
