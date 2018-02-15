@@ -108,10 +108,11 @@ position: relative;
 }
 
 .btn:hover {
-  font-weight: 500;
+  /* font-weight: 500; */
+  color: black;
   background-color: #6d6d6d;
   border-color: #6d6d6d;
-  transform: scale(1.1, 1.1);
+  /* transform: scale(1.1, 1.1); */
 }
 
 .navigation a {
@@ -325,6 +326,10 @@ position: relative;
 
 #likebutton {
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  cursor: pointer;
+}
+
+.settingsbutton :hover {
   cursor: pointer;
 }
 

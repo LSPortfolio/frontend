@@ -20,6 +20,9 @@ class NavBar extends Component {
         </Button>,
         <Button key={2} href="/Submit" className="navbuttons">
           SUBMIT
+        </Button>,
+        <Button href='/settings'>
+          SETTINGS
         </Button>
       ]
     ) : pathname === '/signUp' ? (
@@ -36,7 +39,7 @@ class NavBar extends Component {
   render() {
     const { pathname } = this.props.history.location
     return (
-      <div className="container-row" id="header">
+      <div className="container" id="header">
         <header className="header">
           <div className="navigation">
             <div className="brand">
@@ -49,7 +52,7 @@ class NavBar extends Component {
             </div>
             <div className="btn_container">
               {this.navSwitcher(pathname)}
-              <Button href="/Projects" className="navbuttons">STUDENT PROJECTS</Button>
+              <Button href="/Projects">STUDENT PROJECTS</Button>
               <Button href='/Contributors'>CONTRIBUTORS</Button>
             </div>
           </div>
