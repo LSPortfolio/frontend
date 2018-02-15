@@ -40,9 +40,9 @@ export class PasswordToken extends Component {
 
   render() {
     return (
-      <div>
+      <div className="col-sm-4">
         <form>
-          <label>Input new password</label>
+          <h2>Input new password</h2>
           <FormGroup>
             <FormControl 
               className="input_form"

@@ -1,7 +1,7 @@
 const data = {
   projectName: '',
   media: [],
-  cover: [],
+  cover: '',
   contributors: [],
   description: '',
   tags: '',

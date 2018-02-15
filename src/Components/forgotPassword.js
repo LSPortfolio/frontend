@@ -32,10 +32,9 @@ export class ForgotPassword extends Component {
 
   render() {
     return (
-      <div className="container">
-        <form>
+      <div className="col-sm-4">
           <h2>Forgot Password</h2>
-          <br />
+          <form>
           <FormGroup>
             <FormControl
               className="input_form"
